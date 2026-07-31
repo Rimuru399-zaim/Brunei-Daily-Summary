@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local build previews — never committed; the published page is docs/index.html
+preview-fixtures.html
+preview-dryrun.html
+docs/index.tmp.html
+.cache/

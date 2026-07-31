@@ -1,0 +1,53 @@
+# The Borneo Dispatch — feed list
+#
+# Each entry needs a `beat`. Valid beats:
+#   brunei  borneo  sea  world  tech
+#
+# Section mapping (see build.py):
+#   "Brunei"                 <- brunei
+#   "Southeast Asia"         <- sea
+#   "Technology & Business"  <- world + tech
+#   the lead + "World in Brief" are chosen across everything
+#
+# The `borneo` beat was retired 2026-07-31 (paper narrowed to Brunei / SEA /
+# World). Leaving a beat: borneo entry here is harmless but unused.
+#
+# Run `python build.py --check-feeds` before committing changes here.
+# A feed that 404s or returns no items should be removed, not left to fail
+# every morning. All URLs below were verified live on 2026-07-31.
+#
+# Dropped after verification (kept here as a record so nobody re-adds them):
+#   Daily Express (Sabah)  https://www.dailyexpress.com.my/rss/  -> 403 (blocks
+#       automated clients; we do not spoof a browser to get around that)
+#   The Star / AseanPlus   https://www.thestar.com.my/rss/editors-pick -> 404
+#       (all /rss/* paths tested return 404; replaced by NST + FMT below)
+
+feeds:
+  # ---- Brunei ----
+  - name: Borneo Bulletin
+    beat: brunei
+    url: https://borneobulletin.com.bn/feed/
+  - name: The Scoop
+    beat: brunei
+    url: https://thescoop.co/feed/           # low-frequency; may add nothing on quiet days
+
+  # ---- Southeast Asia ----
+  - name: Channel NewsAsia
+    beat: sea
+    url: https://www.channelnewsasia.com/api/v1/rss-outbound-feed
+  - name: New Straits Times
+    beat: sea
+    url: https://www.nst.com.my/feed
+  - name: Free Malaysia Today
+    beat: sea
+    url: https://www.freemalaysiatoday.com/feed/
+
+  # ---- World ----
+  - name: Al Jazeera
+    beat: world
+    url: https://www.aljazeera.com/xml/rss/all.xml
+
+  # ---- Technology & Business ----
+  - name: Ars Technica
+    beat: tech
+    url: https://feeds.arstechnica.com/arstechnica/index

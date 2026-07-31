@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Borneo Dispatch",
+  "schemaVersion": 1,
+  "description": "The Borneo Dispatch — a broadsheet-style daily news page covering Brunei and Borneo, Southeast Asia, world news, and tech/business. Refreshed each morning by a scheduled task."
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Borneo Dispatch</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0 0 60px;
+  background: #f4f1e8;
+  color: #1a1713;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+.paper {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fbf8f0;
+  padding: 28px 36px 48px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+
+/* ---------- Masthead ---------- */
+.ears {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: #6b6153; padding-bottom: 6px;
+}
+.masthead { text-align: center; border-top: 3px solid #1a1713; border-bottom: 1px solid #1a1713; padding: 10px 0 6px; }
+.masthead h1 {
+  margin: 0;
+  font-family: "Playfair Display", "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(38px, 8vw, 82px);
+  letter-spacing: .02em;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.masthead .motto {
+  margin: 6px 0 2px; font-size: 11px; letter-spacing: .3em;
+  text-transform: uppercase; color: #6b6153;
+}
+.dateline {
+  display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between;
+  border-bottom: 3px double #1a1713; padding: 7px 2px;
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #4a4237;
+}
+
+/* ---------- Section rules ---------- */
+.section-rule {
+  display: flex; align-items: center; gap: 12px;
+  margin: 30px 0 14px;
+}
+.section-rule::before, .section-rule::after { content: ""; flex: 1; border-top: 1px solid #1a1713; }
+.section-rule span {
+  font-size: 12px; letter-spacing: .32em; text-transform: uppercase; font-weight: 700;
+}
+
+/* ---------- Lead ---------- */
+.lead { padding-top: 18px; }
+.kicker {
+  font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase;
+  color: #9a3412; font-weight: 700; margin-bottom: 6px;
+}
+.lead h2 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", "Bodoni MT", Didot, Georgia, serif;
+  font-size: clamp(30px, 4.6vw, 48px);
+  line-height: 1.05; font-weight: 800; letter-spacing: -.01em;
+}
+.deck { margin: 0 0 4px; font-size: 17px; font-style: italic; color: #453d31; }
+.byline { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; margin: 10px 0 12px; }
+
+.cols3 { column-count: 3; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+.cols2 { column-count: 2; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+@media (max-width: 820px) { .cols3, .cols2 { column-count: 1; } }
+.cols3 p, .cols2 p { margin: 0 0 11px; font-size: 15px; text-align: justify; hyphens: auto; }
+.dropcap::first-letter {
+  float: left; font-size: 56px; line-height: .78; padding: 4px 8px 0 0;
+  font-family: "Playfair Display", Didot, Georgia, serif; font-weight: 800;
+}
+
+/* ---------- Grid of stories ---------- */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 820px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+.story { padding: 0 20px; border-left: 1px solid #d8d0be; }
+.story:first-child { padding-left: 0; border-left: none; }
+@media (max-width: 820px) {
+  .story { border-left: none; padding: 14px 0; border-top: 1px solid #d8d0be; }
+  .story:first-child { border-top: none; padding-top: 0; }
+}
+.story h3 {
+  margin: 0 0 6px; font-size: 20px; line-height: 1.15; font-weight: 700;
+  font-family: "Playfair Display", Didot, Georgia, serif;
+}
+.story h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+.story h3 a:hover { border-bottom-color: #9a3412; color: #9a3412; }
+.story p { margin: 0 0 9px; font-size: 14.5px; text-align: justify; hyphens: auto; }
+.tag { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: #9a3412; font-weight: 700; display: block; margin-bottom: 5px; }
+.src { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8a7f6d; }
+.src a { color: inherit; }
+
+/* ---------- Briefs box ---------- */
+.brief-box {
+  border: 1px solid #1a1713; padding: 16px 18px; background: #f6f2e6;
+}
+.brief-box h4 {
+  margin: 0 0 10px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+  border-bottom: 1px solid #1a1713; padding-bottom: 7px;
+}
+.brief-box ul { margin: 0; padding: 0; list-style: none; }
+.brief-box li { font-size: 14px; padding: 8px 0; border-bottom: 1px dotted #c9c0ac; }
+.brief-box li:last-child { border-bottom: none; padding-bottom: 0; }
+.brief-box b { font-weight: 700; }
+
+/* ---------- Markets strip ---------- */
+.markets {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #d8d0be; border: 1px solid #1a1713; margin-top: 6px;
+}
+@media (max-width: 620px) { .markets { grid-template-columns: repeat(2, 1fr); } }
+.mkt { background: #fbf8f0; padding: 11px 12px; }
+.mkt .nm { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; }
+.mkt .vl { font-size: 21px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.dn { color: #9a1c13; font-size: 13px; font-weight: 700; }
+.up { color: #15603a; font-size: 13px; font-weight: 700; }
+
+.weather {
+  border: 1px solid #1a1713; padding: 14px 16px; background: #f6f2e6; margin-top: 14px;
+}
+.weather h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
+.weather p { margin: 0; font-size: 14px; }
+
+.sidecol { padding-left: 22px; border-left: 1px solid #d8d0be; }
+@media (max-width: 820px) { .sidecol { padding-left: 0; border-left: none; margin-top: 20px; } }
+.split { display: grid; grid-template-columns: 2.1fr 1fr; gap: 0; }
+@media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+
+footer {
+  margin-top: 34px; border-top: 3px double #1a1713; padding-top: 12px;
+  font-size: 11px; color: #6b6153; text-align: center; letter-spacing: .08em;
+}
+footer a { color: #6b6153; }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  <div class="ears">
+    <span>Vol. I &nbsp;·&nbsp; No. 2</span>
+    <span>Bandar Seri Begawan &nbsp;·&nbsp; Kota Kinabalu &nbsp;·&nbsp; Kuching</span>
+    <span>Price: Free</span>
+  </div>
+
+  <div class="masthead">
+    <h1>The Borneo Dispatch</h1>
+    <p class="motto">Brunei &nbsp;·&nbsp; Borneo &nbsp;·&nbsp; Southeast Asia &nbsp;·&nbsp; The World</p>
+  </div>
+
+  <div class="dateline">
+    <span>Friday, 31 July 2026</span>
+    <span>Morning Edition</span>
+    <span>Compiled for Zaim</span>
+  </div>
+
+  <!-- ================= LEAD ================= -->
+  <div class="split">
+    <div>
+      <div class="lead">
+        <div class="kicker">Markets · Seoul</div>
+        <h2>Kospi Surges 13 Per Cent, Erasing a Week of Losses in a Single Morning</h2>
+        <p class="deck">Samsung and SK Hynix lead a violent rebound in chipmaking shares, days after a sell-off over an AI bubble forced the Korea Exchange to halt trading altogether.</p>
+        <div class="byline">Wire Reports · Seoul · New York</div>
+      </div>
+
+      <div class="cols3">
+        <p class="dropcap">South Korea's Kospi index rose more than 13 per cent in early trading on Friday, recovering in a single session most of the ground it had lost during a week that ranks among the most turbulent in the exchange's recent history. The index was quoted at 6,330.59, a gain of 13.1 per cent, with reports of an intraday advance beyond 17 per cent.</p>
+        <p>The move was concentrated in the chipmakers. Samsung Electronics rose 19.3 per cent and SK Hynix, the memory manufacturer, gained 22.6 per cent, with later quotations placing both higher still. The scale of the advance triggered the Korea Exchange's sidecar mechanism, suspending programme trading for five minutes.</p>
+        <p>The rebound followed two days of severe losses. The Kospi fell by more than 16 per cent across Tuesday and Wednesday amid a global retreat from technology shares, driven by concern that valuations in artificial intelligence had run ahead of earnings and by intensifying competition from Chinese chipmakers. Tuesday's decline of more than 8 per cent was steep enough to trigger a circuit breaker and halt trading outright.</p>
+        <p>Wall Street set the tone for Friday's recovery. On Thursday the Dow Jones Industrial Average rose 613.92 points, or 1.2 per cent, to close at 52,208.06; the S&amp;P 500 gained 1.7 per cent to 7,437.64; and the Nasdaq Composite added 2.8 per cent to 25,122.18, lifted by a 15.5 per cent advance in Microsoft after its results.</p>
+        <p>The turn came a day after the Federal Reserve, under Chair Kevin Warsh, voted 9–3 to leave interest rates unchanged — a decision investors initially read as hawkish, sending shares lower on Wednesday before they reversed course.</p>
+        <p>For the region, the episode is a reminder of how tightly Southeast Asian markets are now coupled to the semiconductor cycle. Malaysian equities held up through the week, with the FBM KLCI described as resilient despite the American sell-off, and the ringgit opened higher after the Fed's hold.</p>
+      </div>
+      <p class="src" style="margin-top:8px">Sources: <a href="https://www.cnbc.com/2026/07/30/stock-market-today-live-updates.html">CNBC</a> · <a href="https://www.usnews.com/news/business/articles/2026-07-30/south-koreas-kospi-index-jumps-more-than-13-on-a-surge-of-chipmaking-stocks">AP via U.S. News</a> · <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-30-2026">TheStreet</a> · <a href="https://www.upi.com/Top_News/World-News/2026/07/28/kospi-circuit-breaker-korea-exchange/7341785278461/">UPI</a></p>
+    </div>
+
+    <div class="sidecol">
+      <div class="brief-box">
+        <h4>World in Brief</h4>
+        <ul>
+          <li><b>UEFA</b> member associations vote unanimously to boycott the World Cup and other FIFA competitions over plans to sell stakes in a $20 billion tournament subsidiary.</li>
+          <li><b>Japan</b>'s Kumamoto earthquake death toll rises to 25 as survivors contend with heat and water shortages.</li>
+          <li><b>Spain and France</b> evacuate hundreds of thousands as wildfires sweep southern Europe.</li>
+          <li><b>Brent crude</b> climbs above $92 a barrel after a fresh wave of American air strikes on Iran, before easing to about $90.</li>
+          <li><b>The United Nations</b> says months of border clashes have claimed nearly 500 civilian lives.</li>
+          <li><b>Indonesia</b> reports one death as wildfires flare in several provinces.</li>
+        </ul>
+      </div>
+
+      <div class="weather">
+        <h4>Weather Watch</h4>
+        <p>Bandar Seri Begawan: clear periods with rain and a chance of thunder overnight. July in Brunei typically brings highs near 32°C and lows around 23°C, with rain on some 17 days and about 249mm for the month.</p>
+      </div>
+
+      <div class="brief-box" style="margin-top:14px">
+        <h4>Today in the Region</h4>
+        <ul>
+          <li><b>30 July</b> — The ringgit opened higher and the FBM KLCI held firm after the Federal Reserve left rates unchanged.</li>
+          <li><b>1 August</b> — A purported "solidarity gathering" for Mohd Shafie Apdal is advertised for Padang Merdeka, Kota Kinabalu; Warisan says it is not the organiser.</li>
+          <li><b>11 August</b> — Malaysia's Parliament sits specially to debate the Tabung Haji royal commission report.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BRUNEI & BORNEO ================= -->
+  <div class="section-rule"><span>Brunei &amp; Borneo</span></div>
+
+  <div class="grid">
+    <div class="story">
+      <span class="tag">Bandar Seri Begawan</span>
+      <h3><a href="https://amro-asia.org/brunei-darussalam-preserving-fiscal-buffers-and-advancing-diversification-for-economic-resilience">Growth Seen Recovering to 2.3 Per Cent as Energy Prices Lift Revenue</a></h3>
+      <p>Brunei's economy is projected to expand by 2.3 per cent this year, according to the ASEAN+3 Macroeconomic Research Office, a marked improvement on the 0.7 per cent recorded in 2025 and a recovery attributed largely to elevated oil and liquefied natural gas prices feeding through to export earnings and fiscal revenue.</p>
+      <p>The assessment urges the Government to preserve fiscal buffers and press on with diversification, noting that reliance on hydrocarbons remains the principal risk to long-term resilience. A supply bill of B$6.3 billion has been tabled for the 2026/27 financial year.</p>
+      <p class="src">AMRO</p>
+    </div>
+
+    <div class="story">
+      <span class="tag">Brunei · Courts</span>
+      <h3><a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/07/30/asean-news-headlines-at-10pm-on-thursday-july-30-2026">Company Fined B$40,000 Over Failure to Comply With ABCi Order</a></h3>
+      <p>A company in Brunei has been fined B$40,000 for failing to comply with an ABCi Order, in one of two enforcement matters reported from the Sultanate on Thursday.</p>
+      <p>Separately, two individuals were fined over contraband offences.</p>
+      <p class="src">The Star / AseanPlus</p>
+    </div>
+
+    <div class="story">
+      <span class="tag">Kota Kinabalu</span>
+      <h3><a href="https://www.thestar.com.my/news/nation/2026/07/30/warisan-denies-organising-solidarity-rally-for-shafie">Warisan Disowns Poster Calling Supporters to Padang Merdeka</a></h3>
+      <p>Parti Warisan has denied organising a solidarity gathering for its president, Mohd Shafie Apdal, advertised for Padang Merdeka on Saturday afternoon. The secretary-general, Loretto Padua Jr, said the party had never planned such an event and described the poster as the work of parties seeking to damage its reputation.</p>
+      <p>The denial came a day after the Kota Kinabalu Sessions Court sentenced Mr Shafie to five weeks' imprisonment for contempt over remarks concerning the inquest into the death of the teenager Zara Qairina Mahathir. A stay of execution was granted pending appeal to the High Court.</p>
+      <p class="src">The Star</p>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:22px">
+    <div class="story">
+      <span class="tag">Kuching · Education</span>
+      <h3><a href="https://www.thestar.com.my/news/nation/2026/07/30/sarawaks-stem-pipeline-starts-from-primary-school-says-sagah">Sarawak's Science Pipeline Must Begin in Primary School, Says Sagah</a></h3>
+      <p>The state education minister, Roland Sagah, said Sarawak's effort to build a science and technology workforce has to start with primary pupils rather than at university level, framing early exposure as the constraint on the state's ambitions in research and advanced industry.</p>
+      <p class="src">The Star</p>
+    </div>
+
+    <div class="story">
+      <span class="tag">Energy · Grid</span>
+      <h3><a href="https://www.theborneopost.com/news/sarawak/">Federal Ministry Monitoring Sarawak–Peninsular Interconnection</a></h3>
+      <p>The energy transition ministry, PETRA, is monitoring progress on new electricity interconnection projects, among them the proposed link between Sarawak and Peninsular Malaysia, a scheme central to the state's plan to export power across the South China Sea.</p>
+      <p class="src">Borneo Post</p>
+    </div>
+
+    <div class="story">
+      <span class="tag">East Kalimantan</span>
+      <h3><a href="https://en.antaranews.com/news/421517/ikn-phase-ii-expected-to-drive-stronger-growth-across-east-kalimantan">Nusantara's Second Phase Expected to Widen Gains in East Kalimantan</a></h3>
+      <p>The second phase of construction at Indonesia's new capital, covering parts of North Penajam Paser and Kutai Kartanegara, is expected to deliver broader economic benefits across East Kalimantan over the 2025–2029 period.</p>
+      <p>North Penajam Paser's economy grew by close to 20 per cent during the first phase.</p>
+      <p class="src">Antara News</p>
+    </div>
+  </div>
+
+  <!-- ================= SOUTHEAST ASIA ================= -->
+  <div class="section-rule"><span>Southeast Asia</span></div>
+
+  <div class="grid two">
+    <div class="story">
+      <span class="tag">Kuala Lumpur</span>
+      <h3><a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/07/30/asean-news-headlines-at-10pm-on-thursday-july-30-2026">Parliament to Sit Specially on Tabung Haji Commission Report</a></h3>
+      <div class="cols2">
+        <p>Malaysia's Parliament will hold a special sitting on 11 August to debate the report of the royal commission of inquiry into Tabung Haji, the pilgrimage fund, Prime Minister Anwar Ibrahim said. The commission has recommended the creation of a dedicated Haj fund department within the institution.</p>
+        <p>The Attorney-General's Chambers said any prosecution arising from the report would follow the law and the evidence, while the Malaysian Anti-Corruption Commission has formed a task force to examine the findings on misgovernance. Amanah has called for swift police and MACC investigations.</p>
+        <p>Separately, three reports have been lodged alleging vote-buying ahead of the Negeri Sembilan state election.</p>
+      </div>
+      <p class="src">The Star / AseanPlus</p>
+    </div>
+
+    <div class="story">
+      <span class="tag">Trade</span>
+      <h3><a href="https://www.thestar.com.my/business/business-news/2026/07/30/malaysian-msmes-ready-to-tap-asean039s-680-mln-consumer-market-under-defa-sim">Smaller Firms Prepare for a 680-Million-Consumer Market Under DEFA</a></h3>
+      <div class="cols2">
+        <p>Malaysian micro, small and medium enterprises are positioned to reach ASEAN's market of some 680 million consumers under the bloc's Digital Economy Framework Agreement, according to an assessment published on Thursday.</p>
+        <p>The agreement is intended to harmonise cross-border digital trade rules across the ten member states, an area where Borneo-based exporters have long cited administrative friction as a greater obstacle than tariffs.</p>
+      </div>
+      <p class="src">The Star / Business</p>
+    </div>
+  </div>
+
+  <!-- ================= TECH & BUSINESS ================= -->
+  <div class="section-rule"><span>Technology &amp; Business</span></div>
+
+  <div class="markets">
+    <div class="mkt"><div class="nm">Kospi</div><div class="vl">6,330.59</div><div class="up">▲ 13.1%</div></div>
+    <div class="mkt"><div class="nm">Dow Jones</div><div class="vl">52,208.06</div><div class="up">▲ 613.92</div></div>
+    <div class="mkt"><div class="nm">Nasdaq Comp.</div><div class="vl">25,122.18</div><div class="up">▲ 2.8%</div></div>
+    <div class="mkt"><div class="nm">Brent Crude</div><div class="vl">$90.04</div><div class="dn">▼ 0.78%</div></div>
+  </div>
+  <p class="src" style="margin-top:6px">Kospi quoted in early Asian trading, 31 July 2026; US indices at the 30 July close; Brent at 30 July settlement. Brent traded above $92 earlier in the week.</p>
+
+  <div class="grid" style="margin-top:22px">
+    <div class="story">
+      <span class="tag">Silicon</span>
+      <h3><a href="https://www.tipranks.com/news/nvidia-stock-nvda-hits-all-time-high-as-tech-earnings-impress">Nvidia Reaches Record High as Meta and Microsoft Results Land</a></h3>
+      <p>Nvidia shares touched an all-time intraday high as Meta and Microsoft each rose more than 5 per cent following their quarterly results, with Microsoft reporting capital expenditure of $24 billion against expectations nearer $21.4 billion.</p>
+      <p class="src">TipRanks</p>
+    </div>
+
+    <div class="story">
+      <span class="tag">Semiconductors</span>
+      <h3><a href="https://www.cnbc.com/2026/07/30/chip-stock-rally-lam-research-micron-amd.html">Lam Research Climbs 17 Per Cent as Chip Equipment Shares Rip Higher</a></h3>
+      <p>Semiconductor equipment and memory shares rallied sharply on Thursday, with Lam Research up 17 per cent and AMD and Micron both advancing, reversing much of the previous session's rout. Arm Holdings gained 7 per cent on demand for its first in-house processor.</p>
+      <p class="src">CNBC</p>
+    </div>
+
+    <div class="story">
+      <span class="tag">Monetary Policy</span>
+      <h3><a href="https://www.cnbc.com/2026/07/29/fed-meeting-today-live-updates.html">Fed Holds Rates Steady on a 9–3 Vote</a></h3>
+      <p>The Federal Open Market Committee left its policy rate unchanged, with three dissents. Chair Kevin Warsh's message on inflation drew a cool reception from investors on the day, though equities recovered the following session. Gold slipped as Treasury yields rose.</p>
+      <p class="src">CNBC</p>
+    </div>
+  </div>
+
+  <footer>
+    The Borneo Dispatch · Morning Edition · 31 July 2026 · Assembled from published reporting; headlines link to sources.<br>
+    Refresh this page each morning for a new edition.
+  </footer>
+</div>
+</body>
+</html>
