@@ -315,6 +315,17 @@ def gemini_json(client, prompt: str, system: str | None = None) -> dict | list:
         except Exception as e:  # noqa: BLE001
             last = e
             msg = str(e).lower()
+            # A per-DAY free-tier quota won't clear for hours — do not burn
+            # minutes retrying it. Fail fast with an actionable message.
+            if "perday" in msg or "requests per day" in msg:
+                raise RuntimeError(
+                    "Gemini free-tier DAILY quota is exhausted for model "
+                    f"'{MODEL}'. It resets around midnight US Pacific "
+                    "(~15:00 Brunei). Either wait for the reset and run once "
+                    "(a build needs only ~5 calls), or set the GEMINI_MODEL "
+                    "repo variable to a model with a larger free daily quota "
+                    "(e.g. gemini-2.0-flash) — no code change needed."
+                ) from e
             if any(t in msg for t in transient) and attempt < 4:
                 wait = min(10 * 2 ** attempt, 90)  # 10, 20, 40, 80s
                 log(f"    transient Gemini error, backing off {wait}s "
