@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Brunei Dispatch — 01 Aug 2026</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0 0 60px;
+  background: #f4f1e8;
+  color: #1a1713;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+.paper {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fbf8f0;
+  padding: 28px 36px 48px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+
+/* ---------- Masthead ---------- */
+.ears {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: #6b6153; padding-bottom: 6px;
+}
+.masthead { text-align: center; border-top: 3px solid #1a1713; border-bottom: 1px solid #1a1713; padding: 10px 0 6px; }
+.masthead h1 {
+  margin: 0;
+  font-family: "Playfair Display", "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(38px, 8vw, 82px);
+  letter-spacing: .02em;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.masthead .motto {
+  margin: 6px 0 2px; font-size: 11px; letter-spacing: .3em;
+  text-transform: uppercase; color: #6b6153;
+}
+.dateline {
+  display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between;
+  border-bottom: 3px double #1a1713; padding: 7px 2px;
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #4a4237;
+}
+
+/* ---------- Section rules ---------- */
+.section-rule {
+  display: flex; align-items: center; gap: 12px;
+  margin: 30px 0 14px;
+}
+.section-rule::before, .section-rule::after { content: ""; flex: 1; border-top: 1px solid #1a1713; }
+.section-rule span {
+  font-size: 12px; letter-spacing: .32em; text-transform: uppercase; font-weight: 700;
+}
+
+/* ---------- Lead ---------- */
+.lead { padding-top: 18px; }
+.kicker {
+  font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase;
+  color: #9a3412; font-weight: 700; margin-bottom: 6px;
+}
+.lead h2 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", "Bodoni MT", Didot, Georgia, serif;
+  font-size: clamp(30px, 4.6vw, 48px);
+  line-height: 1.05; font-weight: 800; letter-spacing: -.01em;
+}
+.deck { margin: 0 0 4px; font-size: 17px; font-style: italic; color: #453d31; }
+.byline { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; margin: 10px 0 12px; }
+
+.cols3 { column-count: 3; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+.cols2 { column-count: 2; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+@media (max-width: 820px) { .cols3, .cols2 { column-count: 1; } }
+.cols3 p, .cols2 p { margin: 0 0 11px; font-size: 15px; text-align: justify; hyphens: auto; }
+.dropcap::first-letter {
+  float: left; font-size: 56px; line-height: .78; padding: 4px 8px 0 0;
+  font-family: "Playfair Display", Didot, Georgia, serif; font-weight: 800;
+}
+
+/* ---------- Grid of stories ---------- */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 820px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+.story { padding: 0 20px; border-left: 1px solid #d8d0be; }
+.story:first-child { padding-left: 0; border-left: none; }
+@media (max-width: 820px) {
+  .story { border-left: none; padding: 14px 0; border-top: 1px solid #d8d0be; }
+  .story:first-child { border-top: none; padding-top: 0; }
+}
+.story h3 {
+  margin: 0 0 6px; font-size: 20px; line-height: 1.15; font-weight: 700;
+  font-family: "Playfair Display", Didot, Georgia, serif;
+}
+.story h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+.story h3 a:hover { border-bottom-color: #9a3412; color: #9a3412; }
+.story p { margin: 0 0 9px; font-size: 14.5px; text-align: justify; hyphens: auto; }
+.tag { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: #9a3412; font-weight: 700; display: block; margin-bottom: 5px; }
+.src { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8a7f6d; }
+.src a { color: inherit; }
+
+/* ---------- Briefs box ---------- */
+.brief-box {
+  border: 1px solid #1a1713; padding: 16px 18px; background: #f6f2e6;
+}
+.brief-box h4 {
+  margin: 0 0 10px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+  border-bottom: 1px solid #1a1713; padding-bottom: 7px;
+}
+.brief-box ul { margin: 0; padding: 0; list-style: none; }
+.brief-box li { font-size: 14px; padding: 8px 0; border-bottom: 1px dotted #c9c0ac; }
+.brief-box li:last-child { border-bottom: none; padding-bottom: 0; }
+.brief-box b { font-weight: 700; }
+
+/* ---------- Markets strip ---------- */
+.markets {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #d8d0be; border: 1px solid #1a1713; margin-top: 6px;
+}
+@media (max-width: 620px) { .markets { grid-template-columns: repeat(2, 1fr); } }
+.mkt { background: #fbf8f0; padding: 11px 12px; }
+.mkt .nm { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; }
+.mkt .vl { font-size: 21px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.dn { color: #9a1c13; font-size: 13px; font-weight: 700; }
+.up { color: #15603a; font-size: 13px; font-weight: 700; }
+
+.weather {
+  border: 1px solid #1a1713; padding: 14px 16px; background: #f6f2e6; margin-top: 14px;
+}
+.weather h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
+.weather p { margin: 0; font-size: 14px; }
+
+.sidecol { padding-left: 22px; border-left: 1px solid #d8d0be; }
+@media (max-width: 820px) { .sidecol { padding-left: 0; border-left: none; margin-top: 20px; } }
+.split { display: grid; grid-template-columns: 2.1fr 1fr; gap: 0; }
+@media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+
+/* ---------- Staleness banner (see BRIEF §7) ---------- */
+.stale {
+  border: 1px solid #9a1c13; background: #f7e9e6; color: #9a1c13;
+  padding: 10px 14px; margin-bottom: 14px; font-size: 13px;
+}
+
+footer {
+  margin-top: 34px; border-top: 3px double #1a1713; padding-top: 12px;
+  font-size: 11px; color: #6b6153; text-align: center; letter-spacing: .08em;
+}
+footer a { color: #6b6153; }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  
+
+  <div class="ears">
+    <span>Vol. 1 &nbsp;·&nbsp; No. 0</span>
+    <span>Bandar Seri Begawan</span>
+    <span>Price: Free</span>
+  </div>
+
+  <div class="masthead">
+    <h1>The Brunei Dispatch</h1>
+    <p class="motto">Brunei &nbsp;·&nbsp; Southeast Asia &nbsp;·&nbsp; The World</p>
+  </div>
+
+  <div class="dateline">
+    <span>Saturday, 01 August 2026</span>
+    <span>Morning Edition</span>
+    <span>Compiled for the morning reader</span>
+  </div>
+
+  <!-- ================= LEAD ================= -->
+  <div class="split">
+    <div>
+      <div class="lead">
+        <div class="kicker">ECONOMIC OUTLOOK</div>
+        <h2>Brunei Urged to Preserve Fiscal Buffers and Accelerate Diversification</h2>
+        <p class="deck">The ASEAN+3 Macroeconomic Research Office has advised Brunei Darussalam to safeguard fiscal reserves and expand non-oil industries to strengthen economic resilience.</p>
+        <div class="byline">By the Dispatch Desk</div>
+      </div>
+
+      <div class="cols3">
+        
+        <p class="dropcap">Brunei Darussalam must safeguard its fiscal buffers and step up economic diversification efforts to build resilience against external shocks, according to an assessment by the ASEAN+3 Macroeconomic Research Office following an annual consultation visit from June 10 to 18, 2026.</p>
+        
+        <p>Although the nation maintains stable macroeconomic fundamentals supported by low inflation and a strong external position, its heavy reliance on the oil and gas sector continues to expose the economy to global commodity price volatility.</p>
+        
+        <p>Near-term economic growth is expected to moderate to a more sustainable pace following recent rebounds in energy production, driven by structural factors linked to the hydrocarbon economy and broader global uncertainties.</p>
+        
+        <p>The research office advised that prudent fiscal management, efficient public spending, and strengthened fiscal frameworks are essential to maintain buffers built primarily from hydrocarbon revenues.</p>
+        
+        <p>Advancing diversification into non-oil sectors including services and manufacturing, alongside investments in human capital and productivity, remains central as the country pursues its Wawasan 2035 goals.</p>
+        
+      </div>
+      <p class="src" style="margin-top:8px">Sources:
+        <a href="https://thebruneian.news/2026/07/31/brunei-urged-to-preserve-fiscal-buffers-accelerate-diversification-for-long-term-resilience/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=brunei-urged-to-preserve-fiscal-buffers-accelerate-diversification-for-long-term-resilience">The Bruneian</a>
+      </p>
+    </div>
+
+    <div class="sidecol">
+      <div class="brief-box">
+        <h4>World in Brief</h4>
+        <ul>
+          
+          <li><b>Al Jazeera:</b> Ukraine hit Russian oil refineries several times, while Russia struck Dnipropetrovsk and a cargo vessel near Odesa.</li>
+          
+          <li><b>Al Jazeera:</b> The 20,000-square-metre site in London is set to become the largest embassy complex in the UK by area.</li>
+          
+          <li><b>Al Jazeera:</b> Mountaineer Nirmal Purja among those reported missing after avalanche hit Broad Peak, Pakistan alpine club says.</li>
+          
+          <li><b>Al Jazeera:</b> Franco Baresi, who won the World Cup with Italy and was regarded as one of football&#39;s finest defenders, dies aged 66.</li>
+          
+        </ul>
+      </div>
+
+      
+      <div class="weather">
+        <h4>Weather Watch</h4>
+        <p>Bandar Seri Begawan: rain showers, 26°C, humidity 91%, wind 11 km/h.</p>
+      </div>
+      
+
+      
+    </div>
+  </div>
+
+  
+  
+
+  <!-- ================= BRUNEI & BORNEO ================= -->
+  
+  <div class="section-rule"><span>Brunei</span></div>
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNeUNJSEZPV21mYTh1T2xsNkwycV8xcnZJZWl2ZTE4RjdVVlZRWTh4WjhqWU5GT1NGaW80V2lINzhYT1ZUS1VQWlUzY01YYnAyeFVHbXI4c0xGamtUa3lhbXk3SEoxYURtSGMxNTAyMHdncGI0RFI1c2lwb2trLThFNVZIQmc?oc=5">U.S.-Brunei Strategic Dialogue Co-Chaired by Hooker</a></h3>
+        
+        
+        <p>The U.S.-Brunei Strategic Dialogue was co-chaired by Hooker.</p>
+        
+        
+        <p class="src">MIRAGE NEWS</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPU0pjeVR6V1d4Nl9QNGxHdDZTcWFEbmZxM0JzY2Q5VEVaQUxFRDFPcUJrUS1VYmV4alBvOTk0a2swbHFaRkFmZnhYdFZwcmNGb2pCWFIyakFvd3VZOS1NOWdEOWw2QWo5R0tONmtTaTlOVzNYTEhTYkQ0OWtiUU9jRFl1QlZFR3J6UzhaYU9XOTRZbWtFRGpYTFZQaE82dk1xWmFSaXhGbXlCNzZwaXZlT09kUnLSAboBQVVfeXFMTjRDLUUtUUJ6cExGcjA5Q3hHQ0U5bm5iZlZhSEpTLThJR0daaEhON1huZXpjMlNPTXV6NE0xd0U1TTMxUG1Gdm9HMUl3V0MtMEJCWUdhTXltSUxjVlBlU0FfWVVoeGRCbHM0T2RJTXk5ckFKRDJ6aVZxUXpsS29Qc21NbUFfY28zal9iRDNOSHVLbWpwUUtpNC0wTHhVVFVpY2lWNWdIWjhtODgxdExSQXYwZE5MUUMweXVR?oc=5">Subsea7 awarded contract offshore Brunei</a></h3>
+        
+        
+        <p>Subsea7 was awarded a contract offshore Brunei.</p>
+        
+        
+        <p class="src">THE MANILA TIMES</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxNVTctNmtRRVVuVjNpb1piYzViLW5vQmJYN1FmRDY4WmZETGhfMTFmWlpJUktNWl82Si1PLWhURTJOZ0dVc1dSdk9oVkwxOWZmcWJrbGY0SFFBazMwRnVfallaUXZVaHQ0WFRFQ1ZLQ3E5dWFhZnIxQTBESG4ybC1WNm9JckZIR01iUkR0MW5ZakduNGdVQTNSUDFrWFJ1QWtPNmZBVVFuSzRMT0cyMWpfMEM0bEYwN1lOUVJscTYwbERZNEpSNFdoRUtpN2pxZF8yS1BUMg?oc=5">Brunei orders removal of Argentina food products after porcine DNA detected</a></h3>
+        
+        
+        <p>Brunei has ordered the removal of food products from Argentina after porcine DNA was detected.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+    </div>
+    
+    <div class="grid" style="margin-top:22px">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOUEZpOU5iT1FsUm1waE5tTTVlUWRJMDBwaHg0ZTBMQk1oZ3pYbGgyQXQ2M244dURSRG1GMi15Z2FZaU9UcHdxS3VZT1JlNHZoeXhJSFFWdTctSWVKaGIwV19wb29NaTU4UGVHNnplWDB4ckI5OVE5NXpWSzJsbnFHR1J4Ui10RjE2S0hOYlVIZ0hBdTJFS3BHZlREOFJQQ3ZjaU9JN3VyZ3BKbXJ2Q0E?oc=5">Deputy Premier proposes joint border dev’t with Brunei to spur northern Sarawak growth</a></h3>
+        
+        
+        <p>A Deputy Premier has proposed joint border development with Brunei to spur growth in northern Sarawak.</p>
+        
+        
+        <p class="src">DAYAKDAILY</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://thebruneian.news/2026/07/31/bdcb-warns-public-against-ai-generated-investment-scams/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=bdcb-warns-public-against-ai-generated-investment-scams">BDCB warns public against AI-generated investment scams</a></h3>
+        
+        
+        <p>The Brunei Darussalam Central Bank has warned the public to remain vigilant against videos generated or manipulated using artificial intelligence to promote an investment scheme. The warning follows the circulation of a fraudulent video misusing the central bank name and impersonating a senior government official to falsely claim that an investment product complied with central bank standards. As the regulator of the financial sector in Brunei Darussalam, the central bank clarified that it does not offer financial products or services to the public, nor does it promote or endorse investment platforms.</p>
+        
+        <p>The central bank advised individuals to deal exclusively with licensed or regulated financial entities and to avoid disclosing personal or banking information in response to suspicious content. Members of the public who encounter suspicious financial activities are encouraged to report them to the Financial Consumer Issues unit at the central bank, as well as to relevant social media platforms and the Brunei Computer Emergency Response Team. The bank noted that impersonation for cheating, disseminating false information that causes public alarm, and the unauthorized use of its name or logo are offences under existing laws.</p>
+        
+        
+        <p class="src">THE BRUNEIAN</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://thebruneian.news/2026/07/31/utb-hosts-international-sharing-session-on-smart-mobility-and-sustainable-cities/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=utb-hosts-international-sharing-session-on-smart-mobility-and-sustainable-cities">UTB hosts international sharing session on smart mobility and sustainable cities</a></h3>
+        
+        
+        <p>Universiti Teknologi Brunei, through its Centre for Transport Research, hosted an international sharing session focused on smart mobility and sustainable cities at its library complex. The event was officiated by Yang Mulia Haji Mohammad Salihin bin Haji Aspar, Deputy Permanent Secretary for Transport at the Ministry of Transport and Infocommunications, as the Guest of Honour. The session featured virtual presentations from three international speakers representing institutions in Thailand, India, and Indonesia.</p>
+        
+        <p>Held in conjunction with the 40th Anniversary Celebration of Universiti Teknologi Brunei, the event highlighted innovative approaches to traffic management, transportation systems, and electric mobility. Additionally, Berjaya Sdn Bhd conducted a live demonstration of Advanced Driver Assistance Systems and modern vehicle safety features to showcase how emerging automotive technologies can enhance road safety and traffic efficiency.</p>
+        
+        
+        <p class="src">THE BRUNEIAN</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= SOUTHEAST ASIA ================= -->
+  
+  <div class="section-rule"><span>Southeast Asia</span></div>
+  
+    
+    <div class="grid two">
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/news/nation/2026/07/1501530/anwar-singapore-pm-unveil-js-sez-master-plan-december">Anwar, Singapore PM to unveil JS-SEZ master plan in December</a></h3>
+        <div class="cols2">
+        
+        <p>Prime Minister Datuk Seri Anwar Ibrahim and Singapore Prime Minister Lawrence Wong are expected to unveil the Johor-Singapore Special Economic Zone master plan during a bilateral retreat hosted by Malaysia in December. Economy Minister Akmal Nasrullah Mohd Nasir stated that the launch will be a key agenda item, adding that ongoing geopolitical uncertainties allow Malaysia to position the zone as a preferred destination for domestic and foreign investors.</p>
+        
+        <p>In November, Akmal and Singapore National Development Minister Chee Hong Tat will co-chair a cooperation committee meeting in Singapore ahead of the master plan launch. The economic zone secured RM76.98 billion in approved investments in 2025, with 57 per cent of the projects currently under implementation.</p>
+        
+        </div>
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/world/region/2026/07/1501476/thailand-approves-tougher-security-measures-reviews-peace-dialogue">Thailand approves tougher security measures, reviews peace dialogue</a></h3>
+        <div class="cols2">
+        
+        <p>Thailand has approved enhanced security measures for its southern border provinces following a recent rise in violence. Announced by National Security Council Secretary-General Chatchai Bangchuad after a meeting chaired by Prime Minister Anutin Charnvirakul, the measures include stricter law enforcement, expanded surveillance, tighter border controls, and a review of the peace dialogue framework with the Barisan Revolusi Nasional. Military and police forces have been instructed to monitor cross-border movements to prevent suspects from fleeing to neighbouring countries.</p>
+        
+        <p>The decision to reassess the peace process follows the temporary suspension of talks originally scheduled for September in Malaysia, which were put on hold after a July attack in Narathiwat killed five rangers. Although future talks depend on appropriate circumstances and a conducive atmosphere, Chatchai stressed that the government remains committed to the peace dialogue and its broader development policies for the southern border region.</p>
+        
+        </div>
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= TECH & BUSINESS ================= -->
+  <div class="section-rule"><span>Technology &amp; Business</span></div>
+
+  
+  <div class="markets">
+    
+    <div class="mkt">
+      <div class="nm">VWRP</div>
+      <div class="vl">139.16</div>
+      <div class="up">▲ 0.38 (0.27%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">MRVL</div>
+      <div class="vl">192.18</div>
+      <div class="up">▲ 8.88 (4.84%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">AMD</div>
+      <div class="vl">491.50</div>
+      <div class="up">▲ 6.11 (1.26%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">Cloudflare</div>
+      <div class="vl">279.14</div>
+      <div class="dn">▼ 4.25 (1.50%)</div>
+    </div>
+    
+  </div>
+  <p class="src" style="margin-top:6px">Quotes via Yahoo Finance · 31 Jul 2026</p>
+  
+
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/security/2026/07/ai-scammers-outperform-humans-when-it-comes-to-building-trust/">AI scammers outperform humans when it comes to building trust</a></h3>
+        
+        
+        <p>Researchers from four universities evaluated the potential of generative artificial intelligence chatbots within the scam industry, specifically focusing on text-based romance fraud that transitions into fake crypto investments. In a simulation comparing artificial intelligence chatbots to humans during the trust-building conversations preceding a fake investment request, the chatbots effectively impersonated humans.</p>
+        
+        <p>During the relationship-establishing stages of the fraud process, which often stretch to months in real-world interactions, the study revealed that artificial intelligence chatbots performed remarkably effectively. By some measures, the chatbots even outperformed human scammers in establishing victim trust.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/security/2026/07/kremlin-hackers-are-exploiting-exchange-flaw-to-backdoor-unpatched-networks/">Max-severity Exchange server flaw under active exploitation by Kremlin hackers</a></h3>
+        
+        
+        <p>Security researchers reported that Russian state hackers are leveraging a maximum-severity vulnerability in Microsoft Outlook Exchange Server to breach unpatched devices, stealing credentials and confidential data. The threat actor, identified by researchers at Proofpoint as TA488, acts on behalf of the Kremlin and was previously warned about alongside the National Security Agency for exploiting a Zimbra email vulnerability.</p>
+        
+        <p>The attack mechanism requires no action from a user beyond opening an email sent to an Outlook Web Access account to install advanced malware. Proofpoint researchers noted that the infection chain deploys a previously unknown JavaScript browser-based implant named OWAReaper to maintain persistent access.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/ai/2026/07/google-reveals-gemini-robotics-2-0-promising-improved-dexterity-and-safety/">Google reveals Gemini Robotics 2.0, promising improved dexterity and safety</a></h3>
+        
+        
+        <p>Google has launched Gemini Robotics 2, introducing three sub-models designed to enhance physical robots with whole-body intelligence, continuous environment analysis, and collaborative capabilities. Aiming toward creating generalist robots capable of performing complex human tasks, the update allows artificial intelligence to control full humanoid bots with improved dexterity.</p>
+        
+        <p>The release includes Gemini Robotics ER 2, an upgraded embodied reasoning model integrated with the Gemini Live API. One of the new sub-models has been made publicly available for developers to access.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+    </div>
+    
+  
+
+  <footer>
+    The Brunei Dispatch · Morning Edition · 01 Aug 2026 · Assembled from published reporting; headlines link to sources.<br>
+    Built 01 Aug 2026 00:35 UTC+08:00 · <a href="https://github.com/Rimuru399-zaim/Brunei-Daily-Summary">source</a>
+  </footer>
+</div>
+</body>
+</html>
