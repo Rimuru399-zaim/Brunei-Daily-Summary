@@ -264,6 +264,9 @@ WRITE_RULES = (
     "too thin to support the requested length, write fewer paragraphs and stop. "
     "Never estimate a number. Never infer what someone probably said. Writing "
     "three honest sentences is a success; writing five padded ones is a failure. "
+    "Use double quotation marks ONLY around words that appear exactly, character "
+    "for character, in the source text. If you are paraphrasing or summarising, "
+    "do not use quotation marks at all. "
     "Restrained broadsheet news style, third person, no hype, no bullet points, "
     "no emoji."
 )
@@ -286,8 +289,14 @@ def gemini_json(client, prompt: str, system: str | None = None) -> dict | list:
         system_instruction=system,
         temperature=0.4,
     )
+    # Retry transient failures: 429 (rate limit) and the 5xx server errors
+    # Gemini returns when a model is briefly overloaded (503 UNAVAILABLE,
+    # 500 INTERNAL). These are temporary — back off and try again rather than
+    # letting one busy moment kill the whole edition.
+    transient = ("429", "resource_exhausted", "503", "unavailable",
+                 "500", "internal", "overloaded", "high demand")
     last = None
-    for attempt in range(3):
+    for attempt in range(5):
         try:
             resp = client.models.generate_content(
                 model=MODEL, contents=prompt, config=cfg
@@ -295,10 +304,11 @@ def gemini_json(client, prompt: str, system: str | None = None) -> dict | list:
             return json.loads(resp.text)
         except Exception as e:  # noqa: BLE001
             last = e
-            msg = str(e)
-            if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
-                wait = 20 * (attempt + 1)
-                log(f"    429 from Gemini, backing off {wait}s")
+            msg = str(e).lower()
+            if any(t in msg for t in transient) and attempt < 4:
+                wait = min(10 * 2 ** attempt, 90)  # 10, 20, 40, 80s
+                log(f"    transient Gemini error, backing off {wait}s "
+                    f"(attempt {attempt + 1}/5)")
                 time.sleep(wait)
                 continue
             raise
