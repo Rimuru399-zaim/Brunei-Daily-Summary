@@ -24,6 +24,22 @@
 
 feeds:
   # ---- Brunei ----
+  # Google News is the workhorse: it is served from Google's infrastructure, so
+  # unlike borneobulletin.com.bn it does NOT 403 GitHub's datacenter IPs, and it
+  # aggregates current Brunei coverage from many outlets. build.py credits the
+  # real publisher (from entry.source) rather than "Google News", but note the
+  # item links are Google redirect URLs that bounce to the original article.
+  - name: Google News (Brunei)
+    beat: brunei
+    url: https://news.google.com/rss/search?q=Brunei&hl=en-US&gl=US&ceid=US:en
+  # The Bruneian: a Brunei outlet with direct links and full article text. Carries
+  # some PR/advertorial filler, but Gemini's selection skips the weak items.
+  - name: The Bruneian
+    beat: brunei
+    url: https://thebruneian.news/feed/
+  # Borneo Bulletin: genuine Brunei journalism with direct links, BUT it 403s from
+  # GitHub's datacenter IPs (works locally). Kept because it succeeds on the runs
+  # where it is not blocked; a 403 is skipped gracefully, never fatal.
   - name: Borneo Bulletin
     beat: brunei
     url: https://borneobulletin.com.bn/feed/

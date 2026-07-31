@@ -207,10 +207,20 @@ def gather(feeds: list[dict], client: httpx.Client, enrich: bool) -> list[dict]:
             link = e.get("link", "").strip()
             if not title or not link:
                 continue
+            # Aggregator feeds (e.g. Google News) name the real publisher in
+            # entry.source and append " - Publisher" to the headline. Credit the
+            # real outlet, and strip the suffix so the headline reads cleanly.
+            src_title = strip_html(
+                (e.get("source") or {}).get("title", "") or ""
+            ).strip()
+            source = src_title or f["name"]
+            suffix = f" - {src_title}"
+            if src_title and title.endswith(suffix):
+                title = title[: -len(suffix)].strip()
             items.append(
                 {
                     "beat": f["beat"],
-                    "source": f["name"],
+                    "source": source,
                     "url": link,
                     "headline": title,
                     "summary": strip_html(e.get("summary", "") or "")[:600],

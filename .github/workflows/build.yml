@@ -52,5 +52,12 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Edition: $(date -u +'%Y-%m-%d')"
-            git push
+            # Rebase onto whatever landed on main while we were building, then
+            # push — with a couple of retries in case main moves again. This
+            # stops a non-fast-forward from throwing away a finished edition.
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "push attempt $attempt failed; retrying"
+              sleep 5
+            done
           fi
