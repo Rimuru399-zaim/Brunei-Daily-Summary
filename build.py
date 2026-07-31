@@ -384,7 +384,11 @@ def call_cards(client, group: list[dict]) -> list[dict]:
 # --------------------------------------------------------------------------- #
 
 _NUM_RE = re.compile(r"\d[\d,\.]*")
-_QUOTE_RE = re.compile(r"[\"“”‘’']([^\"“”]{6,}?)[\"“”‘’']")
+# Only DOUBLE quotes delimit a quotation. Single quotes/apostrophes are excluded
+# on purpose: in English they are almost always possessives ("Ministers'") or
+# contractions ("it's"), and treating them as quote marks produced false
+# "quotations" that failed verification and blocked otherwise-honest stories.
+_QUOTE_RE = re.compile(r'["“”]([^"“”]{6,}?)["“”]')
 
 
 def _num_cores(text: str) -> set[str]:
