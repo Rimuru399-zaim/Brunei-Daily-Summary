@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Brunei Dispatch — 12 Oct 2026</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0 0 60px;
+  background: #f4f1e8;
+  color: #1a1713;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+.paper {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fbf8f0;
+  padding: 28px 36px 48px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+
+/* ---------- Masthead ---------- */
+.ears {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: #6b6153; padding-bottom: 6px;
+}
+.masthead { text-align: center; border-top: 3px solid #1a1713; border-bottom: 1px solid #1a1713; padding: 10px 0 6px; }
+.masthead h1 {
+  margin: 0;
+  font-family: "Playfair Display", "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(38px, 8vw, 82px);
+  letter-spacing: .02em;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.masthead .motto {
+  margin: 6px 0 2px; font-size: 11px; letter-spacing: .3em;
+  text-transform: uppercase; color: #6b6153;
+}
+.dateline {
+  display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between;
+  border-bottom: 3px double #1a1713; padding: 7px 2px;
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #4a4237;
+}
+
+/* ---------- Section rules ---------- */
+.section-rule {
+  display: flex; align-items: center; gap: 12px;
+  margin: 30px 0 14px;
+}
+.section-rule::before, .section-rule::after { content: ""; flex: 1; border-top: 1px solid #1a1713; }
+.section-rule span {
+  font-size: 12px; letter-spacing: .32em; text-transform: uppercase; font-weight: 700;
+}
+
+/* ---------- Lead ---------- */
+.lead { padding-top: 18px; }
+.kicker {
+  font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase;
+  color: #9a3412; font-weight: 700; margin-bottom: 6px;
+}
+.lead h2 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", "Bodoni MT", Didot, Georgia, serif;
+  font-size: clamp(30px, 4.6vw, 48px);
+  line-height: 1.05; font-weight: 800; letter-spacing: -.01em;
+}
+.deck { margin: 0 0 4px; font-size: 17px; font-style: italic; color: #453d31; }
+.byline { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; margin: 10px 0 12px; }
+
+.cols3 { column-count: 3; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+.cols2 { column-count: 2; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+@media (max-width: 820px) { .cols3, .cols2 { column-count: 1; } }
+.cols3 p, .cols2 p { margin: 0 0 11px; font-size: 15px; text-align: justify; hyphens: auto; }
+.dropcap::first-letter {
+  float: left; font-size: 56px; line-height: .78; padding: 4px 8px 0 0;
+  font-family: "Playfair Display", Didot, Georgia, serif; font-weight: 800;
+}
+
+/* ---------- Grid of stories ---------- */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 820px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+.story { padding: 0 20px; border-left: 1px solid #d8d0be; }
+.story:first-child { padding-left: 0; border-left: none; }
+@media (max-width: 820px) {
+  .story { border-left: none; padding: 14px 0; border-top: 1px solid #d8d0be; }
+  .story:first-child { border-top: none; padding-top: 0; }
+}
+.story h3 {
+  margin: 0 0 6px; font-size: 20px; line-height: 1.15; font-weight: 700;
+  font-family: "Playfair Display", Didot, Georgia, serif;
+}
+.story h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+.story h3 a:hover { border-bottom-color: #9a3412; color: #9a3412; }
+.story p { margin: 0 0 9px; font-size: 14.5px; text-align: justify; hyphens: auto; }
+.tag { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: #9a3412; font-weight: 700; display: block; margin-bottom: 5px; }
+.src { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8a7f6d; }
+.src a { color: inherit; }
+
+/* ---------- Briefs box ---------- */
+.brief-box {
+  border: 1px solid #1a1713; padding: 16px 18px; background: #f6f2e6;
+}
+.brief-box h4 {
+  margin: 0 0 10px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+  border-bottom: 1px solid #1a1713; padding-bottom: 7px;
+}
+.brief-box ul { margin: 0; padding: 0; list-style: none; }
+.brief-box li { font-size: 14px; padding: 8px 0; border-bottom: 1px dotted #c9c0ac; }
+.brief-box li:last-child { border-bottom: none; padding-bottom: 0; }
+.brief-box b { font-weight: 700; }
+
+/* ---------- Markets strip ---------- */
+.markets {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #d8d0be; border: 1px solid #1a1713; margin-top: 6px;
+}
+@media (max-width: 620px) { .markets { grid-template-columns: repeat(2, 1fr); } }
+.mkt { background: #fbf8f0; padding: 11px 12px; }
+.mkt .nm { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; }
+.mkt .vl { font-size: 21px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.dn { color: #9a1c13; font-size: 13px; font-weight: 700; }
+.up { color: #15603a; font-size: 13px; font-weight: 700; }
+
+.weather {
+  border: 1px solid #1a1713; padding: 14px 16px; background: #f6f2e6; margin-top: 14px;
+}
+.weather h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
+.weather p { margin: 0; font-size: 14px; }
+
+.sidecol { padding-left: 22px; border-left: 1px solid #d8d0be; }
+@media (max-width: 820px) { .sidecol { padding-left: 0; border-left: none; margin-top: 20px; } }
+.split { display: grid; grid-template-columns: 2.1fr 1fr; gap: 0; }
+@media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+
+/* ---------- Staleness banner (see BRIEF §7) ---------- */
+.stale {
+  border: 1px solid #9a1c13; background: #f7e9e6; color: #9a1c13;
+  padding: 10px 14px; margin-bottom: 14px; font-size: 13px;
+}
+
+footer {
+  margin-top: 34px; border-top: 3px double #1a1713; padding-top: 12px;
+  font-size: 11px; color: #6b6153; text-align: center; letter-spacing: .08em;
+}
+footer a { color: #6b6153; }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  
+
+  <div class="ears">
+    <span>Vol. 1 &nbsp;·&nbsp; No. 33</span>
+    <span>Bandar Seri Begawan</span>
+    <span>Price: Free</span>
+  </div>
+
+  <div class="masthead">
+    <h1>The Brunei Dispatch</h1>
+    <p class="motto">Brunei &nbsp;·&nbsp; Southeast Asia &nbsp;·&nbsp; The World</p>
+  </div>
+
+  <div class="dateline">
+    <span>Monday, 12 October 2026</span>
+    <span>Morning Edition</span>
+    <span>Compiled for the morning reader</span>
+  </div>
+
+  <!-- ================= LEAD ================= -->
+  <div class="split">
+    <div>
+      <div class="lead">
+        <div class="kicker">DEFENCE RELATIONS</div>
+        <h2>Singapore and Brunei Mark 50 Years of Defence Ties</h2>
+        <p class="deck">*Singapore and Brunei have marked 50 years of defence ties with a joint military parade.*</p>
+        <div class="byline">By the Dispatch Desk</div>
+      </div>
+
+      <div class="cols3">
+        
+        <p class="dropcap">Singapore and Brunei have marked 50 years of defence ties with a joint military parade.</p>
+        
+      </div>
+      <p class="src" style="margin-top:8px">Sources:
+        <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPMURkWU9vT2ZNTUdvU0NtQnAtaEh5bW1WMEJpOE9HWHlKSWI0RzhPdGxPY2t2Z1Vyb1dPZnVEcldsdTgxVTFObVY4VDROVmp1R1RUUFdoOFJ1Z2RlUUlCdm5XZlh2X2trMjJxODlJVXhJZmpKQmxVcnlFZU9kd1ctQVNmNVpQaVRiOElhOXF5cWxNZURWeXFfY01Oc1NRdmg1LVYyVGpVYy1ub3VBVWZMV0M3VEc?oc=5">CNA</a>
+      </p>
+    </div>
+
+    <div class="sidecol">
+      <div class="brief-box">
+        <h4>World in Brief</h4>
+        <ul>
+          
+          <li><b>New Straits Times:</b> RIYADH: A fresh Houthi strike hit Riyadh&#39;s international airport on Sunday, a day after an attack claimed by the Yemeni group killed at least a dozen people and forced authorities </li>
+          
+          <li><b>New Straits Times:</b> VATICAN CITY: Pope Leo XIV on Sunday announced he would have an operation “in the coming days” for a lump on his lung, saying it had been located “at a very early stage.”</li>
+          
+          <li><b>New Straits Times:</b> WASHINGTON: US President Donald Trump said in a brief statement Sunday that Russia and Ukraine had agreed to halt strikes on each other’s energy infrastructure, prompting surprise </li>
+          
+          <li><b>Free Malaysia Today:</b> Damage to hundreds of homes and infrastructure across central provinces prompted the government to declare a national state of emergency.</li>
+          
+          <li><b>Al Jazeera:</b> An air strike hit a gold mine near Sudan’s border with Egypt, killing at least 72 people and injuring more than 50.</li>
+          
+        </ul>
+      </div>
+
+      
+      <div class="weather">
+        <h4>Weather Watch</h4>
+        <p>Bandar Seri Begawan: overcast, 28°C, humidity 79%, wind 6 km/h.</p>
+      </div>
+      
+
+      
+    </div>
+  </div>
+
+  
+  
+
+  <!-- ================= BRUNEI & BORNEO ================= -->
+  
+  <div class="section-rule"><span>Brunei</span></div>
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOVW1GU01KaTRvMmJaYVk2Y0JUTVF2OWtTcy1uR0tLLV81M3Z0Y0N2blZqYmVtRThnSS10ai04M3AxcjlDblhsa2FjbnlYNnl5djBzMGNSeDdQdGc5UnJIXzRKWmhDYXQtT3lmdjdudnVDRGRicnJUdldjdmtWbklVcTBBVWdoNTNsRWJLRi04MGl3RUdWdUt0cU5uSHhLT0hYSllYNkw0TnJEWTJUM2c?oc=5">Brunei air quality remains moderate nationwide</a></h3>
+        
+        
+        <p>Air quality across Brunei has remained moderate nationwide.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxOQkRKRU5uNjVfMVhYZ0pKaWtOczNpanJzd2JJRlNkbzROeFZVMlBra2dWTkJkVjgwSXBCel9MdUllek00NExLYUV6YWNmYlVNTDloUUdKSWxOTGFtNGV3LVdmM1pPS3RCdmRzMHlRdDloUHpXY2R6Wld5blQwU1Q1U3JKWkxEa0tHWW9vdHpqaldJejZFNGxOSjdmVFBUWE9PWi1FWkpEdjNDbjJUNGRKVi1tUTBPRWZleG9mWkFlelhBREJjS3c?oc=5">Football: Brunei and Selangor complete FA Cup semi-final cast in contrasting fashion</a></h3>
+        
+        
+        <p>Brunei and Selangor have completed the FA Cup semi-final lineup in contrasting fashion.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxOMTk5NGZKdWZJX3FjVVJXcXA5c3lFS3duRUJBVGNPS2xIeUE5YTE5aG1LNGozdHo3bFJ5QjZpMWc2S2hVRUl1aUF6SFBMaGNXNFR2NUVJRDFhZ2ljcjVaQ18tVS1IWXZ0SHlIOEdKOGhtQmVMNktqNHRKVGxjaFdRTHhIUEJWTGs?oc=5">Brunei students complete Melbourne Marathon races</a></h3>
+        
+        
+        <p>Students from Brunei have completed races at the Melbourne Marathon.</p>
+        
+        
+        <p class="src">BORNEO BULLETIN</p>
+      </div>
+      
+    </div>
+    
+    <div class="grid" style="margin-top:22px">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOcTRWMnlUUHNqTlFwR2dlUlNTeG1XVVBTWjdUanpsNXY5UUR3UG5FU1d5UkpPVlAybVNZOHZlc2p2ZGNoRGpQSG55S3BhNzV1NjItRjVjX1NDZ3ZZZjZ5VS1zSFRtaC1jR2VHVWYxcjJLT0JaSlgyWWtnMWdHcUNTODk2dEs0UTlaTDZQZ1N0X1BZTVByemJCeF9mazA2SUx6bXhhYWJhZWJpTFpIc2dB?oc=5">Singapore Prime Minister concludes Brunei visit</a></h3>
+        
+        
+        <p>The Prime Minister of Singapore has concluded an official visit to Brunei.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://thebruneian.news/2026/10/11/world-health-summit-2026-berlin-becomes-global-meeting-point-for-the-future-of-health/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=world-health-summit-2026-berlin-becomes-global-meeting-point-for-the-future-of-health">World Health Summit 2026: Berlin Becomes Global Meeting Point for the Future of Health</a></h3>
+        
+        
+        <p>The World Health Summit 2026 gathered more than 4,000 participants from 130 countries in Berlin alongside tens of thousands online from October 11 to 13. Convening under the theme &#34;From Crisis to Resilience: Innovating for Health,&#34; representatives from politics, science, civil society, and the private sector met to address Ebola and other infectious diseases, antibiotic resistance, pandemic preparedness, climate-related health threats, and health care delivery in conflict settings such as Ukraine. The summit also scheduled discussions with prospective candidates for the next WHO Director-General, with Summit President Axel R. Pries emphasizing that overcoming overlapping global crises requires innovation across biomedicine, financing, and political coordination.</p>
+        
+        <p>During the official press conference, Diene Keita, Executive Director of UNFPA, announced that the Government of Bangladesh is making a 250 million euro investment in women’s health with support from the European Investment Bank. Other releases included the Wellcome Global Monitor 2026, presented by Wellcome CEO John-Arne Røttingen to document falling trust in science since the COVID-19 pandemic, and findings from the State of the World’s Emotional Health 2026 Report, shared by Gallup Managing Director Ilana Ron Levey to examine the impact of social media use on emotional well-being.</p>
+        
+        
+        <p class="src">THE BRUNEIAN</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= SOUTHEAST ASIA ================= -->
+  
+  <div class="section-rule"><span>Southeast Asia</span></div>
+  
+    
+    <div class="grid two">
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/business/economy/2026/10/1553434/ringgit-opens-higher-vs-us-dollar-fiscal-discipline-pledge">Ringgit opens higher vs US dollar on fiscal discipline pledge</a></h3>
+        <div class="cols2">
+        
+        <p>The ringgit opened higher against the US dollar on Monday at 4.0820/0880, supported by the government&#39;s commitment to fiscal discipline following the tabling of the 2027 Budget. Bank Muamalat Malaysia Bhd chief economist Dr Mohd Afzanizam Abdul Rashid noted that the target to narrow the fiscal deficit to 3.3 per cent of gross domestic product in 2027 from an estimated 3.6 per cent this year should help preserve Malaysia&#39;s sovereign credit rating.</p>
+        
+        <p>Despite external uncertainties surrounding developments in the Middle East and potential US Federal Reserve interest rate moves, the currency opened mostly higher against major and Asean currencies, gaining ground against the British pound, the euro, the Singapore dollar, the Thai baht, and the Indonesian rupiah.</p>
+        
+        </div>
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/news/regional/2026/10/1553315/heavy-rain-triggers-landslides-flash-floods-kundasang-watch">Heavy rain triggers landslides, flash floods in Kundasang [WATCH]</a></h3>
+        <div class="cols2">
+        
+        <p>Continuous heavy rain triggered landslides and flash floods in several areas around Kundasang, leaving an overturned car along a village road near Kampung Sinisian. Ranau district police chief Superintendent Mursalin Mahmud reported that the landslide in Kampung Sinisian covered an estimated 223 square metres, while another landslide behind Surau Al-Taqwah in Kampung Dumpiring Bawah affected roughly 74 square metres, with no casualties reported in either incident.</p>
+        
+        <p>Flooding mixed with rocks also obstructed the main road between Kampung Pahu and Kampung Himbaan in Bundu Tuhan after an inspection revealed a blocked culvert. Eight workers from DCTF Group were sent to clear the route, supported by police personnel monitoring the area.</p>
+        
+        </div>
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= TECH & BUSINESS ================= -->
+  <div class="section-rule"><span>Technology &amp; Business</span></div>
+
+  
+  <div class="markets">
+    
+    <div class="mkt">
+      <div class="nm">VWRP</div>
+      <div class="vl">146.24</div>
+      <div class="up">▲ 0.56 (0.38%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">MRVL</div>
+      <div class="vl">275.28</div>
+      <div class="up">▲ 0.62 (0.23%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">AMD</div>
+      <div class="vl">608.10</div>
+      <div class="dn">▼ 12.58 (2.03%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">Cloudflare</div>
+      <div class="vl">360.93</div>
+      <div class="up">▲ 19.04 (5.57%)</div>
+    </div>
+    
+  </div>
+  <p class="src" style="margin-top:6px">Quotes via Yahoo Finance · 12 Oct 2026</p>
+  
+
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.channelnewsasia.com/business/amazon-in-talks-buy-ai-startup-decart-around-7-billion-wsj-reports-6451486">Amazon in talks to buy AI startup Decart for around $7 billion, WSJ reports</a></h3>
+        
+        
+        <p>Amazon is in talks to acquire the AI startup Decart for around $7 billion, according to reports from the WSJ.</p>
+        
+        
+        <p class="src">CHANNEL NEWSASIA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.channelnewsasia.com/business/us-reverses-course-britains-testing-ai-models-telegraph-says-6451601">US reverses course on Britain&#39;s testing of AI models, Telegraph says</a></h3>
+        
+        
+        <p>The US has reversed course regarding Britain&#39;s testing of AI models, according to the Telegraph.</p>
+        
+        
+        <p class="src">CHANNEL NEWSASIA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.freemalaysiatoday.com/category/business/2026/10/12/bill-gates-warns-cyberattacks-most-imminent-ai-threat">Bill Gates warns cyberattacks most imminent AI threat</a></h3>
+        
+        
+        <p>In an interview with ABC News, Microsoft co-founder Bill Gates warned that unregulated artificial intelligence poses an increasing threat, predicting an escalation in AI-driven cyberattacks over the coming year. Gates stated that the danger of the technology &#34;getting out of control&#34; remains years away, emphasizing that the primary immediate concern is &#34;bad people&#34; deploying systems without safeguards to conduct cyberattacks and bioterrorism.</p>
+        
+        <p>Gates also rejected the perspective advocated by US President Donald Trump that self-regulation by technology firms is sufficient to maintain safety. Pointing out that users are currently permitted to eliminate safeguards on the latest models, Gates cautioned that society is not doing enough to protect against potential harms.</p>
+        
+        
+        <p class="src">FREE MALAYSIA TODAY</p>
+      </div>
+      
+    </div>
+    
+  
+
+  <footer>
+    The Brunei Dispatch · Morning Edition · 12 Oct 2026 · Assembled from published reporting; headlines link to sources.<br>
+    Built 12 Oct 2026 08:58 UTC+08:00 · <a href="https://github.com/Rimuru399-zaim/Brunei-Daily-Summary">source</a>
+  </footer>
+</div>
+</body>
+</html>
