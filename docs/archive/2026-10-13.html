@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Brunei Dispatch — 13 Oct 2026</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0 0 60px;
+  background: #f4f1e8;
+  color: #1a1713;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+.paper {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fbf8f0;
+  padding: 28px 36px 48px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+
+/* ---------- Masthead ---------- */
+.ears {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: #6b6153; padding-bottom: 6px;
+}
+.masthead { text-align: center; border-top: 3px solid #1a1713; border-bottom: 1px solid #1a1713; padding: 10px 0 6px; }
+.masthead h1 {
+  margin: 0;
+  font-family: "Playfair Display", "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(38px, 8vw, 82px);
+  letter-spacing: .02em;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.masthead .motto {
+  margin: 6px 0 2px; font-size: 11px; letter-spacing: .3em;
+  text-transform: uppercase; color: #6b6153;
+}
+.dateline {
+  display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between;
+  border-bottom: 3px double #1a1713; padding: 7px 2px;
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #4a4237;
+}
+
+/* ---------- Section rules ---------- */
+.section-rule {
+  display: flex; align-items: center; gap: 12px;
+  margin: 30px 0 14px;
+}
+.section-rule::before, .section-rule::after { content: ""; flex: 1; border-top: 1px solid #1a1713; }
+.section-rule span {
+  font-size: 12px; letter-spacing: .32em; text-transform: uppercase; font-weight: 700;
+}
+
+/* ---------- Lead ---------- */
+.lead { padding-top: 18px; }
+.kicker {
+  font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase;
+  color: #9a3412; font-weight: 700; margin-bottom: 6px;
+}
+.lead h2 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", "Bodoni MT", Didot, Georgia, serif;
+  font-size: clamp(30px, 4.6vw, 48px);
+  line-height: 1.05; font-weight: 800; letter-spacing: -.01em;
+}
+.deck { margin: 0 0 4px; font-size: 17px; font-style: italic; color: #453d31; }
+.byline { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; margin: 10px 0 12px; }
+
+.cols3 { column-count: 3; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+.cols2 { column-count: 2; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+@media (max-width: 820px) { .cols3, .cols2 { column-count: 1; } }
+.cols3 p, .cols2 p { margin: 0 0 11px; font-size: 15px; text-align: justify; hyphens: auto; }
+.dropcap::first-letter {
+  float: left; font-size: 56px; line-height: .78; padding: 4px 8px 0 0;
+  font-family: "Playfair Display", Didot, Georgia, serif; font-weight: 800;
+}
+
+/* ---------- Grid of stories ---------- */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 820px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+.story { padding: 0 20px; border-left: 1px solid #d8d0be; }
+.story:first-child { padding-left: 0; border-left: none; }
+@media (max-width: 820px) {
+  .story { border-left: none; padding: 14px 0; border-top: 1px solid #d8d0be; }
+  .story:first-child { border-top: none; padding-top: 0; }
+}
+.story h3 {
+  margin: 0 0 6px; font-size: 20px; line-height: 1.15; font-weight: 700;
+  font-family: "Playfair Display", Didot, Georgia, serif;
+}
+.story h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+.story h3 a:hover { border-bottom-color: #9a3412; color: #9a3412; }
+.story p { margin: 0 0 9px; font-size: 14.5px; text-align: justify; hyphens: auto; }
+.tag { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: #9a3412; font-weight: 700; display: block; margin-bottom: 5px; }
+.src { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8a7f6d; }
+.src a { color: inherit; }
+
+/* ---------- Briefs box ---------- */
+.brief-box {
+  border: 1px solid #1a1713; padding: 16px 18px; background: #f6f2e6;
+}
+.brief-box h4 {
+  margin: 0 0 10px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+  border-bottom: 1px solid #1a1713; padding-bottom: 7px;
+}
+.brief-box ul { margin: 0; padding: 0; list-style: none; }
+.brief-box li { font-size: 14px; padding: 8px 0; border-bottom: 1px dotted #c9c0ac; }
+.brief-box li:last-child { border-bottom: none; padding-bottom: 0; }
+.brief-box b { font-weight: 700; }
+
+/* ---------- Markets strip ---------- */
+.markets {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #d8d0be; border: 1px solid #1a1713; margin-top: 6px;
+}
+@media (max-width: 620px) { .markets { grid-template-columns: repeat(2, 1fr); } }
+.mkt { background: #fbf8f0; padding: 11px 12px; }
+.mkt .nm { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; }
+.mkt .vl { font-size: 21px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.dn { color: #9a1c13; font-size: 13px; font-weight: 700; }
+.up { color: #15603a; font-size: 13px; font-weight: 700; }
+
+.weather {
+  border: 1px solid #1a1713; padding: 14px 16px; background: #f6f2e6; margin-top: 14px;
+}
+.weather h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
+.weather p { margin: 0; font-size: 14px; }
+
+.sidecol { padding-left: 22px; border-left: 1px solid #d8d0be; }
+@media (max-width: 820px) { .sidecol { padding-left: 0; border-left: none; margin-top: 20px; } }
+.split { display: grid; grid-template-columns: 2.1fr 1fr; gap: 0; }
+@media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+
+/* ---------- Staleness banner (see BRIEF §7) ---------- */
+.stale {
+  border: 1px solid #9a1c13; background: #f7e9e6; color: #9a1c13;
+  padding: 10px 14px; margin-bottom: 14px; font-size: 13px;
+}
+
+footer {
+  margin-top: 34px; border-top: 3px double #1a1713; padding-top: 12px;
+  font-size: 11px; color: #6b6153; text-align: center; letter-spacing: .08em;
+}
+footer a { color: #6b6153; }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  
+
+  <div class="ears">
+    <span>Vol. 1 &nbsp;·&nbsp; No. 34</span>
+    <span>Bandar Seri Begawan</span>
+    <span>Price: Free</span>
+  </div>
+
+  <div class="masthead">
+    <h1>The Brunei Dispatch</h1>
+    <p class="motto">Brunei &nbsp;·&nbsp; Southeast Asia &nbsp;·&nbsp; The World</p>
+  </div>
+
+  <div class="dateline">
+    <span>Tuesday, 13 October 2026</span>
+    <span>Morning Edition</span>
+    <span>Compiled for the morning reader</span>
+  </div>
+
+  <!-- ================= LEAD ================= -->
+  <div class="split">
+    <div>
+      <div class="lead">
+        <div class="kicker">FLIGHT CANCELLATIONS</div>
+        <h2>Royal Brunei Airlines cancels Jeddah flights over Saudi security concerns</h2>
+        <p class="deck">*Royal Brunei Airlines has grounded flights between Brunei Darussalam and Jeddah scheduled for 13 October following a risk assessment of security conditions in Saudi Arabia.*</p>
+        <div class="byline">By the Dispatch Desk</div>
+      </div>
+
+      <div class="cols3">
+        
+        <p class="dropcap">Royal Brunei Airlines has cancelled its flights between Brunei Darussalam and Jeddah scheduled for 13 October following a risk assessment of the developing security situation in Saudi Arabia.</p>
+        
+        <p>In a statement issued on 12 October, the airline confirmed that the cancellations affected flight BI001 from Brunei to Jeddah and flight BI002 from Jeddah to Brunei. The carrier stated that the decision was made with the safety and security of passengers, crew and operational personnel as its highest priority.</p>
+        
+        <p>The airline is continuing to monitor the situation in coordination with relevant authorities, while other scheduled flights to and from Saudi Arabia remain under review. Further operational decisions will be guided by ongoing risk assessments, prevailing conditions and applicable aviation safety requirements.</p>
+        
+        <p>Acknowledging that the situation may cause concern and inconvenience, particularly for Umrah pilgrims, their families and other passengers travelling between Brunei Darussalam and Saudi Arabia, the carrier said it remains committed to providing timely updates to affected travellers.</p>
+        
+        <p>Passengers and members of the public have been advised to check their flight status before proceeding to the airport and monitor official communication channels, or contact the airline&#39;s Customer Service Centre or their travel agents. The carrier expressed regret over the inconvenience caused and thanked passengers for their patience, understanding and cooperation.</p>
+        
+      </div>
+      <p class="src" style="margin-top:8px">Sources:
+        <a href="https://thebruneian.news/2026/10/13/rb-cancels-brunei-jeddah-flights-over-security-concerns/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rb-cancels-brunei-jeddah-flights-over-security-concerns">The Bruneian</a>
+      </p>
+    </div>
+
+    <div class="sidecol">
+      <div class="brief-box">
+        <h4>World in Brief</h4>
+        <ul>
+          
+          <li><b>Al Jazeera:</b> Vatican expects a one-week hospital recovery for the 71-year-old Catholic leader ahead of scheduled Latin America tour.</li>
+          
+          <li><b>Al Jazeera:</b> Prime Minister Mark Carney&#39;s Thanksgiving message comes a week ahead of Alberta&#39;s referendum to secede.</li>
+          
+          <li><b>Al Jazeera:</b> NATO commander issues warning as European officials have called for vigilance over potential Russian attacks.</li>
+          
+          <li><b>Al Jazeera:</b> Simon caps a Pacific season of record-breaking intensity, as deadly storms wreak havoc from Hawaii to Mexico.</li>
+          
+          <li><b>Al Jazeera:</b> El Nino-induced drought is affecting roughly half of the country as three-year long war continues.</li>
+          
+        </ul>
+      </div>
+
+      
+      <div class="weather">
+        <h4>Weather Watch</h4>
+        <p>Bandar Seri Begawan: overcast, 31°C, humidity 69%, wind 5 km/h.</p>
+      </div>
+      
+
+      
+    </div>
+  </div>
+
+  
+  
+
+  <!-- ================= BRUNEI & BORNEO ================= -->
+  
+  <div class="section-rule"><span>Brunei</span></div>
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNX3QxYy1yNmREQ0M5Xzg2MEFtM1BRblRWTTM0QXVZUk55cnpreEtqRkFNOWJWOVpoUVJzc24wUGRkcTBBSUZJckp6NnNWTmhsZUQxbzN3RHI3RTVMYXg2RjYzX2U5V0JmU2o2bzczcW9HdzhNaTl5RDFYR25hdERBZWpEU0pqaERSSFM5bG5la0JJd0xlX1l2OEQyQ0VTaUxBczBqb194bVg1RG9SNThXdDFn?oc=5">Myanmar’s Min Aung Hlaing to Visit Indonesia and Brunei, Regime Spokesperson Says</a></h3>
+        
+        
+        <p>A spokesperson for the regime stated that Myanmar’s Min Aung Hlaing is to visit Indonesia and Brunei.</p>
+        
+        
+        <p class="src">THE DIPLOMAT – ASIA-PACIFIC CURRENT AFFAIRS MAGAZINE</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTFBQbWxkWVZVNVVSbUJtOVhBNFhHUDJNQUlDSHJxX2plRk9sbzZ0c0hxSWNHQVVSbGZzNGlSb2lCWlFyNXZHOHFZQzNHU1h2OWR3TlI5T3l1UzB5aTMtM05QSWJ3?oc=5">Singapore, Brunei Signs MoU To Strengthen Essential Goods Supply Chain Resilience</a></h3>
+        
+        
+        <p>Singapore and Brunei have signed a memorandum of understanding aimed at strengthening essential goods supply chain resilience.</p>
+        
+        
+        <p class="src">BERNAMA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxONmZWemV3YWstODZaN3FrclRPNzlWS1lWQzZEMkpFeVREUDdkWGlESXRaSS0tZGM3ci1hRHdBRDN0ZGx1b0dkMDE3eTUwTVlqSGMyQU1PVEpmOUhjSE9PMWFIbVFsZzJUQXhWYzJYbjVyaXJwdTUtbkVibmpabktnS1E2a1c1aUt2U21MdUFHQWZQSGVVWndPdDhMcjM1czMzcWs0RDBnSno3VjhSbHBndkg3Uzh4UUZDVi02VUYyN3UwdWg2SjM2bERB?oc=5">Brunei Sultan receives Singapore Acting Minister for Muslim Affairs</a></h3>
+        
+        
+        <p>The Sultan of Brunei has received Singapore’s Acting Minister for Muslim Affairs.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+    </div>
+    
+    <div class="grid" style="margin-top:22px">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVldySVpaeWtYVzZUVEY2akdRcXBDYTF5WEM2c2REcEp4cGgtSlo4Q3JDS0JWWjVfSjZsT0lnRlIzUEhIcDAzUG9NZHVtTHVleFFRbmRlWWZRMUNBYlMtSVVpaFhMemtJcGlBUE9leFQyS3A4RUZkZUt2aWdfVm9UcU1LVlJUZElvSjd6bjEtY2lkdWtlSzQzZVZBWW42a3BGdHByTjZoM0RYUQ?oc=5">Brunei reaffirms regional energy commitment</a></h3>
+        
+        
+        <p>Brunei has reaffirmed its regional energy commitment.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBtQVU4dGhqbDg5cFN6Ml83TVdwSk1hMU9ZQ2hXOWEtdDFWanFFVkFpQnIwTTVaOXRNREhmX25pSU9hMjFBSG5HcEFVelNNYmkybl9hWDA5eUhLdEg5cnFkWXlmRXY0bXFYYzlxd1FmMVF5WVdnV3c?oc=5">Air quality moderate across Brunei</a></h3>
+        
+        
+        <p>Air quality has been reported as moderate across Brunei.</p>
+        
+        
+        <p class="src">BORNEO BULLETIN</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQM0pyMkhDTm0zRXQ0ZDllOXRfNG9sT3pHTEQzOUhnVURmMXN1dW1KUnZhdFZoeC02UEFxSlFhSmltLXkxMEF5R0N5TmNxQ2JFbkNWUThybENsU1VYc2NIb3EwLTFlQkhfYW5XV2d6Y2ZlMHNxU092dklQeVBtRENySG15eDlRMC1aRFpuaXM0TjBlN1E4TV81NGRMQjFUbld1Mk5yZWhpVlRIdkc3a3Z6a0V3?oc=5">Hibiscus EP (Brunei) B.V. and UBD invest in youth well-being to shape Brunei’s future</a></h3>
+        
+        
+        <p>Hibiscus EP (Brunei) B.V. and UBD are investing in youth well-being to help shape the future of Brunei.</p>
+        
+        
+        <p class="src">BORNEO BULLETIN</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= SOUTHEAST ASIA ================= -->
+  
+  <div class="section-rule"><span>Southeast Asia</span></div>
+  
+    
+    <div class="grid two">
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.channelnewsasia.com/asia/indonesia-transboundary-haze-firefighting-prabowo-kalimantan-sumatra-6454696">Prabowo steps up Indonesia&#39;s firefighting efforts; foreign offers of help not discussed</a></h3>
+        <div class="cols2">
+        
+        <p>Prabowo has stepped up Indonesia&#39;s firefighting efforts, while foreign offers of help were not discussed.</p>
+        
+        </div>
+        <p class="src">CHANNEL NEWSASIA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/news/nation/2026/10/1554133/minimum-wage-myanmar-refugee-registration-among-focus-dewan-rakyat">Minimum wage, Myanmar refugee registration among focus of Dewan Rakyat sitting today</a></h3>
+        <div class="cols2">
+        
+        <p>The Dewan Rakyat is set to address the planned RM2,000 minimum wage implementation scheduled for June 2027, the registration of Myanmar refugees, and actions regarding the humanitarian situation in Gaza. During the Minister&#39;s Question Time, lawmakers will raise questions regarding mechanisms to prevent job losses and cost increases from the wage policy, targets under the Refugee Registration Document Programme, and foreign policy steps concerning protection, aid access, and reconstruction in Gaza.</p>
+        
+        <p>Other inquiries planned for the session cover power generation commitments for data centres by 2030, reserve teacher appointments in Sarawak, and proposed legislation targeting ticket scalping. The sitting will also proceed with the policy-stage debate on the Supply Bill 2027, which follows the Budget 2027 presentation by Prime Minister and Finance Minister Datuk Seri Anwar Ibrahim.</p>
+        
+        </div>
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= TECH & BUSINESS ================= -->
+  <div class="section-rule"><span>Technology &amp; Business</span></div>
+
+  
+  <div class="markets">
+    
+    <div class="mkt">
+      <div class="nm">VWRP</div>
+      <div class="vl">146.62</div>
+      <div class="up">▲ 0.94 (0.65%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">MRVL</div>
+      <div class="vl">265.86</div>
+      <div class="dn">▼ 9.42 (3.42%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">AMD</div>
+      <div class="vl">594.24</div>
+      <div class="dn">▼ 13.86 (2.28%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">Cloudflare</div>
+      <div class="vl">350.87</div>
+      <div class="dn">▼ 10.06 (2.79%)</div>
+    </div>
+    
+  </div>
+  <p class="src" style="margin-top:6px">Quotes via Yahoo Finance · 13 Oct 2026</p>
+  
+
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/">Anthropic&#39;s Claude AI submitted false murder tip to Philadelphia police</a></h3>
+        
+        
+        <p>An Anthropic artificial intelligence model submitted a false tip regarding an unsolved murder to the Philadelphia police on July 18. The submission, sent to a police department webpage designated for unsolved cases, was flagged by a spam filter. Anthropic discovered the incident on September 28 and notified the police department on October 8.</p>
+        
+        <p>The event occurred during internal evaluations of Claude Haiku 4.5, which had been directed to fill out forms without submitting them. The company stated that the model mistakenly submitted the material while anticipating a further confirmation page, recording the incident among &#34;unintended model actions we’ve observed during evaluations and internal use of Claude.&#34;</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/ai/2026/10/inside-amazons-robotic-arms-race-and-what-it-means-for-the-future-of-human-work/">Amazon has over 1 million robot workers. What’s next for human employees?</a></h3>
+        
+        
+        <p>Amazon operates more than 1 million robots in its warehouses while employing more than 1.5 million full-time and part-time human workers. Company leadership maintains that the robotic systems reduce physical fatigue and injury risks by handling demanding fulfillment center duties.</p>
+        
+        <p>However, labor advocates and independent researchers argue that automated facilities create new pressures for staff. Brian Greenwood, a business professor at George Mason University, noted that collaborative robots function in close physical proximity to human employees and hold the ability to dictate the pace of work.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/">Epic Games reportedly pivoting to &#34;AI first&#34; game development model</a></h3>
+        
+        
+        <p>Epic Games is moving to an &#34;AI first&#34; approach for its collaborative project with the Walt Disney Company, according to a report from Bloomberg. Under this model, human staff will oversee code and artwork produced by artificial intelligence systems such as Anthropic&#39;s Claude.</p>
+        
+        <p>The $1.5 billion initiative was announced in early 2024 to develop a Marvel- and Star Wars-themed shooter scheduled for March 2027. The release has now been delayed indefinitely amid understaffing, slower-than-expected progress, and the shift in development practices.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+    </div>
+    
+  
+
+  <footer>
+    The Brunei Dispatch · Morning Edition · 13 Oct 2026 · Assembled from published reporting; headlines link to sources.<br>
+    Built 13 Oct 2026 10:50 UTC+08:00 · <a href="https://github.com/Rimuru399-zaim/Brunei-Daily-Summary">source</a>
+  </footer>
+</div>
+</body>
+</html>
