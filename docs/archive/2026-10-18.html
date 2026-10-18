@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Brunei Dispatch — 19 Oct 2026</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0 0 60px;
+  background: #f4f1e8;
+  color: #1a1713;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+.paper {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fbf8f0;
+  padding: 28px 36px 48px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+
+/* ---------- Masthead ---------- */
+.ears {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: #6b6153; padding-bottom: 6px;
+}
+.masthead { text-align: center; border-top: 3px solid #1a1713; border-bottom: 1px solid #1a1713; padding: 10px 0 6px; }
+.masthead h1 {
+  margin: 0;
+  font-family: "Playfair Display", "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(38px, 8vw, 82px);
+  letter-spacing: .02em;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.masthead .motto {
+  margin: 6px 0 2px; font-size: 11px; letter-spacing: .3em;
+  text-transform: uppercase; color: #6b6153;
+}
+.dateline {
+  display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between;
+  border-bottom: 3px double #1a1713; padding: 7px 2px;
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #4a4237;
+}
+
+/* ---------- Section rules ---------- */
+.section-rule {
+  display: flex; align-items: center; gap: 12px;
+  margin: 30px 0 14px;
+}
+.section-rule::before, .section-rule::after { content: ""; flex: 1; border-top: 1px solid #1a1713; }
+.section-rule span {
+  font-size: 12px; letter-spacing: .32em; text-transform: uppercase; font-weight: 700;
+}
+
+/* ---------- Lead ---------- */
+.lead { padding-top: 18px; }
+.kicker {
+  font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase;
+  color: #9a3412; font-weight: 700; margin-bottom: 6px;
+}
+.lead h2 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", "Bodoni MT", Didot, Georgia, serif;
+  font-size: clamp(30px, 4.6vw, 48px);
+  line-height: 1.05; font-weight: 800; letter-spacing: -.01em;
+}
+.deck { margin: 0 0 4px; font-size: 17px; font-style: italic; color: #453d31; }
+.byline { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; margin: 10px 0 12px; }
+
+.cols3 { column-count: 3; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+.cols2 { column-count: 2; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+@media (max-width: 820px) { .cols3, .cols2 { column-count: 1; } }
+.cols3 p, .cols2 p { margin: 0 0 11px; font-size: 15px; text-align: justify; hyphens: auto; }
+.dropcap::first-letter {
+  float: left; font-size: 56px; line-height: .78; padding: 4px 8px 0 0;
+  font-family: "Playfair Display", Didot, Georgia, serif; font-weight: 800;
+}
+
+/* ---------- Grid of stories ---------- */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 820px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+.story { padding: 0 20px; border-left: 1px solid #d8d0be; }
+.story:first-child { padding-left: 0; border-left: none; }
+@media (max-width: 820px) {
+  .story { border-left: none; padding: 14px 0; border-top: 1px solid #d8d0be; }
+  .story:first-child { border-top: none; padding-top: 0; }
+}
+.story h3 {
+  margin: 0 0 6px; font-size: 20px; line-height: 1.15; font-weight: 700;
+  font-family: "Playfair Display", Didot, Georgia, serif;
+}
+.story h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+.story h3 a:hover { border-bottom-color: #9a3412; color: #9a3412; }
+.story p { margin: 0 0 9px; font-size: 14.5px; text-align: justify; hyphens: auto; }
+.tag { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: #9a3412; font-weight: 700; display: block; margin-bottom: 5px; }
+.src { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8a7f6d; }
+.src a { color: inherit; }
+
+/* ---------- Briefs box ---------- */
+.brief-box {
+  border: 1px solid #1a1713; padding: 16px 18px; background: #f6f2e6;
+}
+.brief-box h4 {
+  margin: 0 0 10px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+  border-bottom: 1px solid #1a1713; padding-bottom: 7px;
+}
+.brief-box ul { margin: 0; padding: 0; list-style: none; }
+.brief-box li { font-size: 14px; padding: 8px 0; border-bottom: 1px dotted #c9c0ac; }
+.brief-box li:last-child { border-bottom: none; padding-bottom: 0; }
+.brief-box b { font-weight: 700; }
+
+/* ---------- Markets strip ---------- */
+.markets {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #d8d0be; border: 1px solid #1a1713; margin-top: 6px;
+}
+@media (max-width: 620px) { .markets { grid-template-columns: repeat(2, 1fr); } }
+.mkt { background: #fbf8f0; padding: 11px 12px; }
+.mkt .nm { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; }
+.mkt .vl { font-size: 21px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.dn { color: #9a1c13; font-size: 13px; font-weight: 700; }
+.up { color: #15603a; font-size: 13px; font-weight: 700; }
+
+.weather {
+  border: 1px solid #1a1713; padding: 14px 16px; background: #f6f2e6; margin-top: 14px;
+}
+.weather h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
+.weather p { margin: 0; font-size: 14px; }
+
+.sidecol { padding-left: 22px; border-left: 1px solid #d8d0be; }
+@media (max-width: 820px) { .sidecol { padding-left: 0; border-left: none; margin-top: 20px; } }
+.split { display: grid; grid-template-columns: 2.1fr 1fr; gap: 0; }
+@media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+
+/* ---------- Staleness banner (see BRIEF §7) ---------- */
+.stale {
+  border: 1px solid #9a1c13; background: #f7e9e6; color: #9a1c13;
+  padding: 10px 14px; margin-bottom: 14px; font-size: 13px;
+}
+
+footer {
+  margin-top: 34px; border-top: 3px double #1a1713; padding-top: 12px;
+  font-size: 11px; color: #6b6153; text-align: center; letter-spacing: .08em;
+}
+footer a { color: #6b6153; }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  
+
+  <div class="ears">
+    <span>Vol. 1 &nbsp;·&nbsp; No. 38</span>
+    <span>Bandar Seri Begawan</span>
+    <span>Price: Free</span>
+  </div>
+
+  <div class="masthead">
+    <h1>The Brunei Dispatch</h1>
+    <p class="motto">Brunei &nbsp;·&nbsp; Southeast Asia &nbsp;·&nbsp; The World</p>
+  </div>
+
+  <div class="dateline">
+    <span>Monday, 19 October 2026</span>
+    <span>Morning Edition</span>
+    <span>Compiled for the morning reader</span>
+  </div>
+
+  <!-- ================= LEAD ================= -->
+  <div class="split">
+    <div>
+      <div class="lead">
+        <div class="kicker">ASEAN PROCEEDINGS</div>
+        <h2>Secretary-General of ASEAN to Participate in Inaugural Meeting in Brunei Darussalam</h2>
+        <p class="deck">*The Secretary-General of ASEAN is slated to attend the Inaugural ASEAN Prosecutors/Attorneys General Meeting in Brunei Darussalam.*</p>
+        <div class="byline">By the Dispatch Desk</div>
+      </div>
+
+      <div class="cols3">
+        
+        <p class="dropcap">The Secretary-General of ASEAN will participate in the Inaugural ASEAN Prosecutors/Attorneys General Meeting.</p>
+        
+        <p>The event is to take place in Brunei Darussalam, according to the ASEAN Main Portal.</p>
+        
+      </div>
+      <p class="src" style="margin-top:8px">Sources:
+        <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxQOFJXdTNZd1hZU19vUXlhMEtyZWlBNEcwZ3pYY2NIVTU0ckI4clJvSk43MENteVBvdmlkUkhsc21SRllDOFhuNmMtWFYwYUd3TnE5VTFaZjFTTnhjQ1VLLUJJQjFMdXFXT3JwTzZtM2NpU3BrWW0wWS0wc1RXZDBCTlNNQVpDOTM0Q3JDRURxMmp1Z1lWUVp6SDkxbEJfTEs5Nm55NVFRR1hJRGdVSzNNNWVkdzIzMkJVWDJqN1JlNnVYd2xOY1d5UkxEbjRCQjVuWkt4TTFBekpTdw?oc=5">ASEAN Main Portal</a>
+      </p>
+    </div>
+
+    <div class="sidecol">
+      <div class="brief-box">
+        <h4>World in Brief</h4>
+        <ul>
+          
+          <li><b>Al Jazeera:</b> President Macron promises to increase security, but stops short of announcing a state of emergency or curfew.</li>
+          
+          <li><b>Al Jazeera:</b> Offices at the Supreme Court in Tirana were set ablaze as anti-government protests continue.</li>
+          
+          <li><b>Al Jazeera:</b> Gulf ministers urge action against Houthis as fighting displaces more than 233,000 people across Yemen.</li>
+          
+          <li><b>Al Jazeera:</b> China is ramping up its presence around Taiwan, in a pattern that Taipei said is designed to &#39;alter the status quo&#39;.</li>
+          
+          <li><b>Free Malaysia Today:</b> Prime Minister Mark Carney made the solemn announcement without providing details on what caused the fire at Canadian Forces Base Wainwright on Saturday.</li>
+          
+        </ul>
+      </div>
+
+      
+      <div class="weather">
+        <h4>Weather Watch</h4>
+        <p>Bandar Seri Begawan: light drizzle, 24°C, humidity 97%, wind 7 km/h.</p>
+      </div>
+      
+
+      
+    </div>
+  </div>
+
+  
+  
+
+  <!-- ================= BRUNEI & BORNEO ================= -->
+  
+  <div class="section-rule"><span>Brunei</span></div>
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxONVR6T1dvMFRLMUJuQk5ST0djaVM4VHY3ZjJZeEpqb0xTY3dQZ05rTzJfcDhYbGtiT01SSEtPSU5RODFybHZ1TUpMcGhTbU1ndHZzeGQzM0lsNTNQeHZlNDl1azhjOUdsMDNwSTd5X3VfN2JuM2tfdkRWR3QzUGNZMTlvNmVCbmdDSWp3aDlFczNFX2UxOGlBUXJ5eFJIUlhVOHV0SkZXMDQ5VXY5WVFSUnZ6SGxLbndUNUZ3eHg0R08?oc=5">Brunei steps up regional efforts to combat human trafficking</a></h3>
+        
+        
+        <p>Brunei has stepped up regional efforts to combat human trafficking.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMizwFBVV95cUxOemxxb3d6OHF6THNMT00ybG9SclNVX1RiSW00bHNraFlSRTVaRVZoak45NEw0S2FySmFMaUhIVnpzbDVDNllPaTVJREpYUGc3ckJ6MmVMZ1dxSmdfZFVXeG0zWUtBMVhxYThuNFRodFVfSVhwOUdIdzBHLUZiYzFmSFNvaWdoNzgySmo4RkhzY0xYdVhURXpfQXJTZTFRUU5GLXlfVjViMWlzb0ZYbnF2NjdBLUV3bzlEcmgwNXRraV9UWkxNWUVTLXdhN213Y2M?oc=5">Brunei strengthens waste collection services in national housing scheme</a></h3>
+        
+        
+        <p>Brunei has strengthened waste collection services in its national housing scheme.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxPeDRGVXlEQm5SZnJEODhvVmdWUlJfLTd4WWpPT2RpeFlFaV9BNjVCMWY2T2hWeHhuNEJncFAtb3Z2bnZoVHJEWkdyVnI4S3RLZ2VmbGhVc3QzVlZQTVdzNGRKNEVfSDZCRGlJZXl1V0s3SzVsRmM4NWRsQUtCY0s0bVln?oc=5">Brunei welcomes international cruise visitors</a></h3>
+        
+        
+        <p>Brunei has welcomed international cruise visitors.</p>
+        
+        
+        <p class="src">BORNEO BULLETIN</p>
+      </div>
+      
+    </div>
+    
+    <div class="grid" style="margin-top:22px">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOaFpyZ2pHc2JGLXBMLU0yZXQ5Vkx2YlhUa0dLUnJIRHRkTDdGRm8yZ3JENlJIYVNPVWRab2tNLW5NeldRODNGNU15V3hYUmtZRmhyWjBsSTdqUGxGbGZ1VXU3U1JfTTlMSXhkOFJxcm9jR2FFQ0phTHU1VjlrcnE3V3ZzU0d0QkluVFlGU0pBUS1DdFQ5amRQbVo2MGR0cVFqdXJ4YlhSdEJNTllabHBGMi1YSG12MjNJamJfU21JUzEzQQ?oc=5">Football: Luan double helps Brunei win against Kuching City in five-goal thriller</a></h3>
+        
+        
+        <p>In football, two goals from Luan helped Brunei secure a win against Kuching City in a five-goal match.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBhX3ZDclpxVF9PWlhVNDhTMDR4S1AyWlpGUTZmOExNQV9GeHFxSHROb08zUVNISUI1Q1c0UXFCRHNuX1laVTRKYkVaNXU0dk16QlVtb0xncFE2eHpfNFZpVkE2MkZaTHYyczdXenNwUjVxN0lNdDlqTlJMMkc?oc=5">Brunei ladies head to Vietnam for BJK Cup</a></h3>
+        
+        
+        <p>Brunei ladies are heading to Vietnam for the BJK Cup.</p>
+        
+        
+        <p class="src">BORNEO BULLETIN</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= SOUTHEAST ASIA ================= -->
+  
+  <div class="section-rule"><span>Southeast Asia</span></div>
+  
+    
+    <div class="grid two">
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/news/nation/2026/10/1558460/pm-asean-mechanism-proposed-strengthen-haze-response">PM: Asean mechanism proposed to strengthen haze response</a></h3>
+        <div class="cols2">
+        
+        <p>Malaysia has proposed an Asean-level mechanism to strengthen coordination, preparedness, and collective action against transboundary haze caused by forest and land fires, Prime Minister Datuk Seri Anwar Ibrahim announced. The haze has forced school closures across several states and areas in Malaysia, while fires in Indonesia have shrouded parts of Southeast Asia in toxic haze and prompted highest-level alerts.</p>
+        
+        <p>Anwar stated that Malaysia remains ready to assist Indonesia, noting that containing the situation is challenging due to unpredictable weather conditions and the vast areas affected. Indonesia has deployed tens of thousands of personnel, aerial assets, and 2.4 tonnes of dry ice over South Sumatra in weather modification operations, while prolonged peatland and forest fires in Kalimantan have degraded air quality and caused acute water shortages.</p>
+        
+        </div>
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/opinion/columnists/2026/10/1558463/indonesia-risks-rare-msci-exclusion-and-loss-global-capital">Indonesia risks rare MSCI exclusion and loss of global capital</a></h3>
+        <div class="cols2">
+        
+        <p>MSCI has warned that it may exclude Indonesia from its stock market indexes, proposing a cut to standalone status over opaque ownership, suspected coordinated trading, and inadequate enforcement. The announcement wiped about US$65 billion off the value of Indonesian equities and caused an 11.6 per cent drop on the Jakarta Composite Index, marking its largest single-day decline since the 1998 Asian financial crisis.</p>
+        
+        <p>A final decision is due next June following a consultation that runs until next April. Banks estimate the exclusion could trigger between US$3 billion and US$6 billion in passive capital outflows alongside potential active withdrawals, while analysts warn the fallout could pressure the rupiah, raise the prospect of an interest rate hike, and complicate financing for state-linked companies in Southeast Asia&#39;s biggest economy.</p>
+        
+        </div>
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= TECH & BUSINESS ================= -->
+  <div class="section-rule"><span>Technology &amp; Business</span></div>
+
+  
+  <div class="markets">
+    
+    <div class="mkt">
+      <div class="nm">VWRP</div>
+      <div class="vl">143.68</div>
+      <div class="dn">▼ 0.80 (0.55%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">MRVL</div>
+      <div class="vl">227.83</div>
+      <div class="dn">▼ 13.41 (5.56%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">AMD</div>
+      <div class="vl">528.75</div>
+      <div class="dn">▼ 33.48 (5.95%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">Cloudflare</div>
+      <div class="vl">296.30</div>
+      <div class="dn">▼ 20.02 (6.33%)</div>
+    </div>
+    
+  </div>
+  <p class="src" style="margin-top:6px">Quotes via Yahoo Finance · 18 Oct 2026</p>
+  
+
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/ai/2026/10/anthropic-gives-outside-ai-watchdog-employee-like-access/">Anthropic gives outside AI watchdog “employee-like” access</a></h3>
+        
+        
+        <p>Anthropic has granted external evaluators &#34;employee-like access&#34; to assess the risks of its models, fulfilling a commitment to expand safeguards amid concerns that the technology could run catastrophically out of control. METR, a nonprofit that has collaborated with artificial intelligence developers such as OpenAI, Google, and Meta, now has a team working inside the Claude maker&#39;s office with direct access to its hardware and internal systems.</p>
+        
+        <p>Providing a larger role for third-party evaluators is among the primary concrete steps proposed by artificial intelligence labs in response to growing worries regarding the threats that more capable systems could pose to the economy, cyber security, and humanity at large.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.freemalaysiatoday.com/category/business/2026/10/19/anthropic-to-commit-5-stake-to-new-public-benefit-fund">Anthropic to commit 5% stake to new public benefit fund</a></h3>
+        
+        
+        <p>Anthropic announced on Sunday that it will allocate 5% of its shares, subject to stockholder approval, to establish a new public benefit fund. Organized as a wholly owned limited liability company, the fund could back nonprofit donations, direct distributions to specific populations, and initiatives targeting the impact of artificial intelligence on workers. The board may also grant an additional 2% of company shares for every 50% increase in valuation beyond an undisclosed baseline. Anthropic stated that no equity held by the fund will be used for lobbying or political donations in the United States or internationally.</p>
+        
+        <p>The Claude maker is planning an initial public offering as a public benefit corporation, a structure requiring leadership to weigh broader social interests alongside investor returns. Combined with the new fund, approximately 20% of Anthropic&#39;s shares will be dedicated to public purposes, excluding potential equity increases tied to future valuation milestones. Further information regarding the fund&#39;s governance, structure, and valuation thresholds will be released in the coming months.</p>
+        
+        
+        <p class="src">FREE MALAYSIA TODAY</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/world/world/2026/10/1558513/japan-launch-historic-mission-mars-moon">Japan to launch historic mission to Mars moon</a></h3>
+        
+        
+        <p>Japanese scientists are preparing to launch the unmanned Martian Moons eXploration probe to collect samples from the moons of Mars, aiming to complete the first round trip to the Martian region and shed light on the origins of the Solar System and life on Earth. The spacecraft is scheduled to launch aboard an H3 rocket from the Tanegashima Space Centre on Tuesday at 4.41am. It will reach the Martian system a year later, orbit the moon Phobos for up to three years, deploy a rover named IDEFIX to ensure a safe touchdown, and collect at least 10 grams of surface material before returning to Earth.</p>
+        
+        <p>Conducted in collaboration with NASA, the European Space Agency, France&#39;s National Centre for Space Studies, the German Aerospace Centre, and numerous universities and technology firms, the mission will also observe the moon Deimos without landing. The Japan Aerospace Exploration Agency aims to evaluate whether Phobos can serve as a &#34;natural space station&#34; to establish requirements essential for eventual crewed Mars exploration.</p>
+        
+        
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+    </div>
+    
+  
+
+  <footer>
+    The Brunei Dispatch · Morning Edition · 19 Oct 2026 · Assembled from published reporting; headlines link to sources.<br>
+    Built 19 Oct 2026 07:55 UTC+08:00 · <a href="https://github.com/Rimuru399-zaim/Brunei-Daily-Summary">source</a>
+  </footer>
+</div>
+</body>
+</html>
