@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Brunei Dispatch — 22 Oct 2026</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0 0 60px;
+  background: #f4f1e8;
+  color: #1a1713;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+.paper {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fbf8f0;
+  padding: 28px 36px 48px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+
+/* ---------- Masthead ---------- */
+.ears {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: #6b6153; padding-bottom: 6px;
+}
+.masthead { text-align: center; border-top: 3px solid #1a1713; border-bottom: 1px solid #1a1713; padding: 10px 0 6px; }
+.masthead h1 {
+  margin: 0;
+  font-family: "Playfair Display", "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(38px, 8vw, 82px);
+  letter-spacing: .02em;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.masthead .motto {
+  margin: 6px 0 2px; font-size: 11px; letter-spacing: .3em;
+  text-transform: uppercase; color: #6b6153;
+}
+.dateline {
+  display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between;
+  border-bottom: 3px double #1a1713; padding: 7px 2px;
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #4a4237;
+}
+
+/* ---------- Section rules ---------- */
+.section-rule {
+  display: flex; align-items: center; gap: 12px;
+  margin: 30px 0 14px;
+}
+.section-rule::before, .section-rule::after { content: ""; flex: 1; border-top: 1px solid #1a1713; }
+.section-rule span {
+  font-size: 12px; letter-spacing: .32em; text-transform: uppercase; font-weight: 700;
+}
+
+/* ---------- Lead ---------- */
+.lead { padding-top: 18px; }
+.kicker {
+  font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase;
+  color: #9a3412; font-weight: 700; margin-bottom: 6px;
+}
+.lead h2 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", "Bodoni MT", Didot, Georgia, serif;
+  font-size: clamp(30px, 4.6vw, 48px);
+  line-height: 1.05; font-weight: 800; letter-spacing: -.01em;
+}
+.deck { margin: 0 0 4px; font-size: 17px; font-style: italic; color: #453d31; }
+.byline { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; margin: 10px 0 12px; }
+
+.cols3 { column-count: 3; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+.cols2 { column-count: 2; column-gap: 26px; column-rule: 1px solid #d8d0be; }
+@media (max-width: 820px) { .cols3, .cols2 { column-count: 1; } }
+.cols3 p, .cols2 p { margin: 0 0 11px; font-size: 15px; text-align: justify; hyphens: auto; }
+.dropcap::first-letter {
+  float: left; font-size: 56px; line-height: .78; padding: 4px 8px 0 0;
+  font-family: "Playfair Display", Didot, Georgia, serif; font-weight: 800;
+}
+
+/* ---------- Grid of stories ---------- */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 820px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+.story { padding: 0 20px; border-left: 1px solid #d8d0be; }
+.story:first-child { padding-left: 0; border-left: none; }
+@media (max-width: 820px) {
+  .story { border-left: none; padding: 14px 0; border-top: 1px solid #d8d0be; }
+  .story:first-child { border-top: none; padding-top: 0; }
+}
+.story h3 {
+  margin: 0 0 6px; font-size: 20px; line-height: 1.15; font-weight: 700;
+  font-family: "Playfair Display", Didot, Georgia, serif;
+}
+.story h3 a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+.story h3 a:hover { border-bottom-color: #9a3412; color: #9a3412; }
+.story p { margin: 0 0 9px; font-size: 14.5px; text-align: justify; hyphens: auto; }
+.tag { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: #9a3412; font-weight: 700; display: block; margin-bottom: 5px; }
+.src { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8a7f6d; }
+.src a { color: inherit; }
+
+/* ---------- Briefs box ---------- */
+.brief-box {
+  border: 1px solid #1a1713; padding: 16px 18px; background: #f6f2e6;
+}
+.brief-box h4 {
+  margin: 0 0 10px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+  border-bottom: 1px solid #1a1713; padding-bottom: 7px;
+}
+.brief-box ul { margin: 0; padding: 0; list-style: none; }
+.brief-box li { font-size: 14px; padding: 8px 0; border-bottom: 1px dotted #c9c0ac; }
+.brief-box li:last-child { border-bottom: none; padding-bottom: 0; }
+.brief-box b { font-weight: 700; }
+
+/* ---------- Markets strip ---------- */
+.markets {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #d8d0be; border: 1px solid #1a1713; margin-top: 6px;
+}
+@media (max-width: 620px) { .markets { grid-template-columns: repeat(2, 1fr); } }
+.mkt { background: #fbf8f0; padding: 11px 12px; }
+.mkt .nm { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6b6153; }
+.mkt .vl { font-size: 21px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.dn { color: #9a1c13; font-size: 13px; font-weight: 700; }
+.up { color: #15603a; font-size: 13px; font-weight: 700; }
+
+.weather {
+  border: 1px solid #1a1713; padding: 14px 16px; background: #f6f2e6; margin-top: 14px;
+}
+.weather h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
+.weather p { margin: 0; font-size: 14px; }
+
+.sidecol { padding-left: 22px; border-left: 1px solid #d8d0be; }
+@media (max-width: 820px) { .sidecol { padding-left: 0; border-left: none; margin-top: 20px; } }
+.split { display: grid; grid-template-columns: 2.1fr 1fr; gap: 0; }
+@media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+
+/* ---------- Staleness banner (see BRIEF §7) ---------- */
+.stale {
+  border: 1px solid #9a1c13; background: #f7e9e6; color: #9a1c13;
+  padding: 10px 14px; margin-bottom: 14px; font-size: 13px;
+}
+
+footer {
+  margin-top: 34px; border-top: 3px double #1a1713; padding-top: 12px;
+  font-size: 11px; color: #6b6153; text-align: center; letter-spacing: .08em;
+}
+footer a { color: #6b6153; }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  
+
+  <div class="ears">
+    <span>Vol. 1 &nbsp;·&nbsp; No. 40</span>
+    <span>Bandar Seri Begawan</span>
+    <span>Price: Free</span>
+  </div>
+
+  <div class="masthead">
+    <h1>The Brunei Dispatch</h1>
+    <p class="motto">Brunei &nbsp;·&nbsp; Southeast Asia &nbsp;·&nbsp; The World</p>
+  </div>
+
+  <div class="dateline">
+    <span>Thursday, 22 October 2026</span>
+    <span>Morning Edition</span>
+    <span>Compiled for the morning reader</span>
+  </div>
+
+  <!-- ================= LEAD ================= -->
+  <div class="split">
+    <div>
+      <div class="lead">
+        <div class="kicker">FOREIGN AFFAIRS</div>
+        <h2>Secretary Rubio Holds Call with Brunei Foreign Minister</h2>
+        <p class="deck">*Secretary Rubio has held a call with Brunei Darussalam Minister of Foreign Affairs His Royal Highness Prince ‘Abdul Mateen.*</p>
+        <div class="byline">By the Dispatch Desk</div>
+      </div>
+
+      <div class="cols3">
+        
+        <p class="dropcap">Secretary Rubio conducted a call with Brunei Darussalam Minister of Foreign Affairs His Royal Highness Prince ‘Abdul Mateen.</p>
+        
+        <p>Notice of the call was issued by the U.S. Department of State.</p>
+        
+      </div>
+      <p class="src" style="margin-top:8px">Sources:
+        <a href="https://news.google.com/rss/articles/CBMihgJBVV95cUxPUlRPVzFDRzJWQUNTbmxub09fS1c1RGdjQmxsY3ZJNnU0cGU4c0pJQ0tTTVNySWFhblB1b1Y3LW4xQzFKOUozNmNKWDctYnMzQTNwcWVvU3NIU0gwTXRFQUI4NTVhYkJHZE1KLU80a2tuRzM2bEhERjNqZG54WEZYX1VwaVUwYnZ4VmtBOGo0RHlTSE1hU1lVRXB6NFp2ZGlrNFJGTHotd3hsTm5hcW5fcWVGWDc5dzFuS2ZvY1ZCS1lWTGpYaFZzV1RaRTE5b2x4c3p0NTV1eGRyT18yUEkzSEIyR0xtWDU4VzA2WUJOY1BYUUVFQ0lGdjlQZ1RJbHdMZWE0allR?oc=5">U.S. Department of State (.gov)</a>
+      </p>
+    </div>
+
+    <div class="sidecol">
+      <div class="brief-box">
+        <h4>World in Brief</h4>
+        <ul>
+          
+          <li><b>Al Jazeera:</b> The 71-year-old leader of the Catholic Church has had the lower lobe of his right lung removed in surgery.</li>
+          
+          <li><b>Al Jazeera:</b> US State Department says Iran-aligned Houthis have &#39;increasingly ⁠⁠engaged in hostilities&#39; against Saudi Arabia.</li>
+          
+          <li><b>Al Jazeera:</b> Russian President Vladimir Putin has signalled Moscow is willing in principle to resume talks with Ukraine and the US.</li>
+          
+          <li><b>Al Jazeera:</b> Colombian authorities have seized 7.6 tonnes of cocaine at the Caribbean port of Cartagena</li>
+          
+          <li><b>Al Jazeera:</b> Australian Lawmaker Helen Haines has lost both legs after a car rammed into her.</li>
+          
+        </ul>
+      </div>
+
+      
+      <div class="weather">
+        <h4>Weather Watch</h4>
+        <p>Bandar Seri Begawan: partly cloudy, 28°C, humidity 81%, wind 6 km/h.</p>
+      </div>
+      
+
+      
+    </div>
+  </div>
+
+  
+  
+
+  <!-- ================= BRUNEI & BORNEO ================= -->
+  
+  <div class="section-rule"><span>Brunei</span></div>
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxPTERlSUhPZnk0bGpTYmhCa3U4d0R3c0tIQUc0aWR3U0JSUGJoWlItWGdKMVplMzAzRGJ3RFN3Z3VEcDdsSTJLdFUyNlZCTlJNUWJucHRWZVpZcExSN0FkYlpiRzA3VW5pSWZQVlJVcEx1LXZZQkl2X3Z6dEQ2ajFtRw?oc=5">‘Brunei targets 4pc annual GDP growth by 2035’</a></h3>
+        
+        
+        <p>Brunei is targeting 4pc annual GDP growth by 2035, the Borneo Bulletin reported.</p>
+        
+        
+        <p class="src">BORNEO BULLETIN</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxPOTk4ZTBWcHhSWF9KS2tGTmlPT0pSbTdPR2NRMGkzSUR0aElhUlNPeWNzbENJMTRpdGlvdUNKWHM2emRTMU9CSEtQMmJzWlhKMzZ5WHhxTGkxQklQMjFlU3RMUXdrOENnb25MX20xZzliZzNtMHVyb3dHMzB0cDBEYm1QVVlnTExmUGdIUkh3QkJpV2RqX1g4Qi1hdVZMTzVsYVpUX1NXQ2hUbzU2eE40SXBmaG1LMUREVkgxYlc2eXo?oc=5">Sarawak targets year-end deal with Brunei on power interconnection, say Abg Johari</a></h3>
+        
+        
+        <p>Sarawak is targeting a year-end agreement with Brunei regarding power interconnection, according to statements by Abg Johari reported by the Borneo Post.</p>
+        
+        
+        <p class="src">BORNEO POST</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTFBoRGo0NUpKcTZ5TnYtNDBOWVpDb1hENDVCdHB3UGFiLU1nNHRtSV95bjV4RDFZd01UckhUU2kybzVTRkdGdzliREFZdzU5TGEyeGVRbnlTdW52RWFSN05ndWVSOU1mXzJTUlJDZURtZ0JsZGNXOGtqSQ?oc=5">Red tide persists in three Brunei districts</a></h3>
+        
+        
+        <p>The Asia News Network reported that red tide persists across three districts in Brunei.</p>
+        
+        
+        <p class="src">ASIA NEWS NETWORK</p>
+      </div>
+      
+    </div>
+    
+    <div class="grid" style="margin-top:22px">
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxOMS1paEtmWW9GcEJPTGkxNjJ1OFY2V0RIX3J4Z090eU40WlVDeWo1QmhXcDRuNG5xZkRWa3lVaVZvMFhtUjBOdGM3aE9GVWdONmJrOFlXcGNhNUxkSDRGZ0xaTFV3b0w4dWtJZzNzSnRVOGNvZ0lLMkJvcEVxclJQRXZXWGtiSjJzb1dSQWhnRFpmR2x5LUEtTlp6aFo0LTlER01pMC1GWXlwYnlITFBOTFI0d2ZqeFlndjRGb0pn?oc=5">Brunei hosts Asean meetings to strengthen MSME development</a></h3>
+        
+        
+        <p>Brunei is hosting Asean meetings to strengthen MSME development, according to The Star.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQcWFjbDNKbHVIb1ZKaGNBLVczZG02SFNNY2VxSDJpZS0xbS1RY3ZxbWF3TW5zN244cklnZWZFdHZqZ0RNRjhOMmRDc0tnZHN1STNPZ1lCeUtsbHoxRUVXWEl6NW1qM0syRU1nWG5icDl6SDZ4UlNkbmw5OFRuVnhXZXJSLUxnb25IWWRZYjJaQ1pDNjF3Qmo4aFVOSTNZcGtyRDJoem5oWVZsbGExWHlmcUhyeTM2alR4dmZnQUN2aW0yRjJ6M2hZSjhCMW9kcFNH?oc=5">Public warned of fake SMS messages claiming traffic violations in Brunei</a></h3>
+        
+        
+        <p>The Star reported that the public has been warned of fake SMS messages claiming traffic violations in Brunei.</p>
+        
+        
+        <p class="src">THE STAR</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Brunei</span>
+        <h3><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxNN0FlMl9xTHBlNXgyVjVDMWZmSUpzdU5ObFBaODQtN1BZdENQMHdCRUtuVDA0NnlRbGUtWHgxTEdlSklGNm55OTRmWHJPUVB2UVlsS3AtS3NvR2tsUExyWTI0eTVLeUhPUzFPUFYzX25iZTh4RHpvTGhUS2Y4RHVBb0ZtcGpQVjRseU9ma2FR?oc=5">Use AI To Enhance Skills, Brunei Minister Urges Graduates</a></h3>
+        
+        
+        <p>A Brunei minister has urged graduates to use AI to enhance skills, according to the New National Star.</p>
+        
+        
+        <p class="src">NEW NATIONAL STAR</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= SOUTHEAST ASIA ================= -->
+  
+  <div class="section-rule"><span>Southeast Asia</span></div>
+  
+    
+    <div class="grid two">
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.freemalaysiatoday.com/category/world/2026/10/22/philippines-exploring-deeper-cooperation-with-taiwan-to-protect-cables">Philippines exploring deeper cooperation with Taiwan to protect cables</a></h3>
+        <div class="cols2">
+        
+        <p>The Philippines is exploring deeper cooperation with Taiwan to protect undersea cables and address gray-zone activity, according to Felipe F. Carino III, Manila&#39;s deputy chief of mission in Washington. Speaking to the Center for a New American Security, Carino described this engagement as a &#34;pragmatic and practical approach&#34; to protect mutual interests in the Bashi Channel, despite Manila&#39;s one-China policy. He noted that undersea cables carry nearly all intercontinental data flows and linked cable security to South China Sea tensions, adding that &#34;60-67% of cyber incidents happen in our region&#34;.</p>
+        
+        <p>At the same seminar, Taiwan&#39;s deputy representative in Washington, Andrea Yang, noted the jailing in Taiwan of a Chinese ship captain over cable damage and stated that Taiwan would dedicate more resources to unmanned systems for maritime surveillance. Yang said interference with undersea cables should be addressed by the UNs to establish mechanisms against &#34;bad behaviour&#34;. Earlier in the month, the Philippine coast guard deployed an aircraft and its largest vessel to challenge a Chinese research ship near undersea cable corridors off northern Batanes province.</p>
+        
+        </div>
+        <p class="src">FREE MALAYSIA TODAY</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">ASEAN</span>
+        <h3><a href="https://www.nst.com.my/news/nation/2026/10/1560944/not-malaysia-vs-indonesia-syed-saddiq-says-amid-haze-row">&#39;This is not Malaysia vs Indonesia&#39;, Syed Saddiq says amid haze row</a></h3>
+        <div class="cols2">
+        
+        <p>Muar member of parliament Syed Saddiq Syed Abdul Rahman rejected framing the regional haze row as a dispute between nations, stating, &#34;This is not Malaysia versus Indonesia&#34;. Responding to criticism from former Indonesian trade minister Muhammad Lutfi over his call for an Asean boycott of Indonesia, Syed Saddiq urged evidence-based action under Indonesian law against any Malaysian, Indonesian, or Singaporean company proven to have burned forests for profit. While debating the 2027 Budget, he had argued that funding should be cut to companies linked to open burning, insisting, &#34;You must treat them as parties to be boycotted in this region&#34;.</p>
+        
+        <p>Lutfi criticized the proposed boycott, stating that the haze crisis should not be used for cheap political publicity, and highlighted the deaths of Indonesian firefighters and the hundreds of thousands of people affected by smoke. Syed Saddiq maintained that large-scale plantation ownership alone was not proof of guilt and claimed that an offer by Malaysia to provide aircraft, personnel, and three helicopters to fight the fires in Indonesia had received no response.</p>
+        
+        </div>
+        <p class="src">NEW STRAITS TIMES</p>
+      </div>
+      
+    </div>
+    
+  
+  
+
+  <!-- ================= TECH & BUSINESS ================= -->
+  <div class="section-rule"><span>Technology &amp; Business</span></div>
+
+  
+  <div class="markets">
+    
+    <div class="mkt">
+      <div class="nm">VWRP</div>
+      <div class="vl">143.60</div>
+      <div class="dn">▼ 0.30 (0.21%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">MRVL</div>
+      <div class="vl">244.76</div>
+      <div class="up">▲ 7.67 (3.24%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">AMD</div>
+      <div class="vl">552.72</div>
+      <div class="up">▲ 14.67 (2.73%)</div>
+    </div>
+    
+    <div class="mkt">
+      <div class="nm">Cloudflare</div>
+      <div class="vl">307.22</div>
+      <div class="up">▲ 9.64 (3.24%)</div>
+    </div>
+    
+  </div>
+  <p class="src" style="margin-top:6px">Quotes via Yahoo Finance · 22 Oct 2026</p>
+  
+
+  
+    
+    <div class="grid">
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/security/2026/10/php-maintainers-tell-web-devs-to-prepare-themselves-for-critical-security-patches/">PHP warns it plans to release 2 emergency patches imminently</a></h3>
+        
+        
+        <p>Maintainers of PHP announced on Monday that emergency patches are scheduled for release in just over 12 hours to address two vulnerabilities, each carrying a severity rating of 9.2 out of 10.</p>
+        
+        <p>An advisory urged all PHP users to prepare immediately to upgrade once the release becomes available. Maintainers noted that the fixes could be published earlier if details of either flaw become public or if evidence of active exploitation is observed.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/ai/2026/10/openais-latest-ai-models-are-coming-to-google-cloud-and-antigravity/">OpenAI&#39;s latest AI models are coming to Google Cloud and Antigravity</a></h3>
+        
+        
+        <p>Under a new arrangement between Google and OpenAI, the artificial intelligence company&#39;s frontier models will be incorporated into Google Cloud services and the Antigravity coding tool. The rollout will include the GPT 6 and 6.1 suite—Astra, Sol, and Luna—even as Microsoft remains OpenAI&#39;s primary cloud partner.</p>
+        
+        <p>The additions will be integrated into Google&#39;s Model Garden alongside Gemini, Claude, and open models including Mistral, Llama, and Gemma. Google stated that this inclusion makes it the only large cloud provider offering access to all three leading closed large language models, with a system that dynamically shifts workloads between models based on efficiency, latency, and performance.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+      <div class="story">
+        <span class="tag">Technology</span>
+        <h3><a href="https://arstechnica.com/cars/2026/10/tesla-profits-drop-43-in-q3/">Tesla profits drop 43% in Q3</a></h3>
+        
+        
+        <p>Tesla generated $28 billion in revenue during the third quarter of 2026, roughly matching its total from the same period in 2025. Automotive revenue fell 3 percent year over year to $20.6 billion, and revenue from solar panels and storage batteries dropped 16 percent to $2.9 billion, though services and other revenues grew by a third to $4.6 billion.</p>
+        
+        <p>Rising costs weighed heavily on profitability, as operating expenses climbed 39 percent to $4.8 billion. Consequently, operating margin fell from 5.8 percent a year earlier to 2.6 percent, while net profit dropped 43 percent to $787 million. Capital expenditures rose 110 percent to $4.7 billion, and free cash flow fell 62 percent to $1.5 billion.</p>
+        
+        
+        <p class="src">ARS TECHNICA</p>
+      </div>
+      
+    </div>
+    
+  
+
+  <footer>
+    The Brunei Dispatch · Morning Edition · 22 Oct 2026 · Assembled from published reporting; headlines link to sources.<br>
+    Built 22 Oct 2026 08:26 UTC+08:00 · <a href="https://github.com/Rimuru399-zaim/Brunei-Daily-Summary">source</a>
+  </footer>
+</div>
+</body>
+</html>
